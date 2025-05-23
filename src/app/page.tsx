@@ -22,8 +22,8 @@ export default function HomePage() {
           <Image 
             src="/FahimPro.png" 
             alt="MD. Ehtesamul Haque Fahim" 
-            width={150} 
-            height={150} 
+            width={300} 
+            height={300} 
             className="rounded-full mx-auto mb-6 border-4 border-primary/50 shadow-lg animate-fadeInUp"
             data-ai-hint="developer portrait"
             priority
@@ -37,7 +37,7 @@ export default function HomePage() {
             <TypingText 
               text="MD. Ehtesamul Haque Fahim" 
               typingSpeed={100} 
-              initialDelayForTyping={900} // Starts after h1 fade in (0.3s delay + 0.6s duration)
+              initialDelayForTyping={200} // Starts after h1 fade in (0.3s delay + 0.6s duration)
               className="inline-block"
               cursorClassName="inline-block w-[3px] h-[0.85em] bg-primary animate-blink align-text-bottom ml-1"
             />
