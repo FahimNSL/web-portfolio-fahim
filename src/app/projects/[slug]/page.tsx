@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { Github, ExternalLink, CalendarDays, Briefcase } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -26,7 +26,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
 
   return (
     <SectionWrapper>
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto"> {/* Changed from max-w-4xl to max-w-5xl */}
         <Link href="/projects" className="inline-flex items-center text-sm text-primary hover:underline mb-8 animate-fadeInUp">
           &larr; Back to Projects
         </Link>
@@ -57,7 +57,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                   <CarouselContent>
                     {project.screenshots.map((screenshotUrl, index) => (
                       <CarouselItem key={index}>
-                        <div className="aspect-video relative">
+                        <div className="aspect-[4/3] relative"> {/* Changed from aspect-video to aspect-[4/3] */}
                           <Image
                             src={screenshotUrl}
                             alt={`${project.title} - Screenshot ${index + 1}`}
@@ -80,7 +80,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                 </Carousel>
               </Card>
             ) : (
-              <div className="aspect-video relative bg-muted rounded-lg flex items-center justify-center">
+              <div className="aspect-[4/3] relative bg-muted rounded-lg flex items-center justify-center"> {/* Changed from aspect-video */}
                 <p className="text-foreground/50">No screenshots available.</p>
               </div>
             )}
