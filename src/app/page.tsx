@@ -3,8 +3,9 @@ import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, DownloadCloud } from 'lucide-react';
-import TypingText from '@/components/shared/TypingText'; // Import the new component
+import { ArrowRight, DownloadCloud, ExternalLink } from 'lucide-react';
+import TypingText from '@/components/shared/TypingText';
+import GitHubActivityGrid from '@/components/shared/GitHubActivityGrid'; // Import the new component
 
 export default function HomePage() {
   return (
@@ -32,15 +33,12 @@ export default function HomePage() {
           </p>
           <h1 
             className="text-5xl md:text-7xl font-bold mb-6 text-neon-glow animate-fadeInUp animation-delay-300"
-            style={{ minHeight: '1.2em' }} // Prevents layout shift while text types out
           >
             <TypingText 
               text="MD. Ehtesamul Haque Fahim" 
               typingSpeed={100} 
-              // The h1 has animation-delay-300 (0.3s) and fadeInUp duration is 0.6s.
-              // So, start typing after 0.3s + 0.6s = 0.9s (900ms).
-              initialDelayForTyping={900}
-              className="inline-block" // Ensures proper flow with the cursor
+              initialDelayForTyping={900} // Starts after h1 fade in (0.3s delay + 0.6s duration)
+              className="inline-block"
               cursorClassName="inline-block w-[3px] h-[0.85em] bg-primary animate-blink align-text-bottom ml-1"
             />
           </h1>
@@ -55,16 +53,16 @@ export default function HomePage() {
             </Button>
             <Button asChild variant="outline" size="lg" className="shadow-lg hover:shadow-primary/40 transform hover:scale-105 transition-all duration-300">
               <Link href="/contact">
-                Get In Touch <DownloadCloud className="ml-2 h-5 w-5" />
+                Get In Touch <DownloadCloud className="ml-2 h-5 w-5" /> {/* Changed icon for relevance */}
               </Link>
             </Button>
           </div>
         </div>
       </SectionWrapper>
 
-      <SectionWrapper id="quick-intro" className="w-full">
+      <SectionWrapper id="quick-intro" className="w-full animate-fadeInUp" style={{animationDelay: '0.8s'}}>
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="animate-fadeInUp animation-delay-800">
+          <div className="animate-fadeInUp" style={{animationDelay: '0.2s'}}> {/* Relative to parent SectionWrapper */}
             <h2 className="text-3xl font-bold mb-4 text-primary">A Glimpse About Me</h2>
             <p className="text-lg text-foreground/80 mb-4">
               I thrive on building user-centric, scalable web applications using the MERN stack. With experience in developing complex systems, including AI model integration and multi-vendor e-commerce platforms, I aim to leverage my expertise to contribute to impactful projects and help businesses grow digitally.
@@ -78,7 +76,7 @@ export default function HomePage() {
               </Link>
             </Button>
           </div>
-          <div className="animate-fadeInUp animation-delay-1000">
+          <div className="animate-fadeInUp" style={{animationDelay: '0.4s'}}> {/* Relative to parent SectionWrapper */}
             <Image 
               src="https://placehold.co/600x400.png" 
               alt="Abstract representation of coding" 
@@ -88,6 +86,24 @@ export default function HomePage() {
               data-ai-hint="web development"
             />
           </div>
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper id="github-activity" className="w-full animate-fadeInUp" style={{animationDelay: '1.2s'}}>
+        <h2 className="text-3xl font-bold mb-8 text-center text-primary animate-fadeInUp" style={{animationDelay: '0.2s'}}>
+          My GitHub Journey
+        </h2>
+        <div className="flex justify-center mb-6 animate-fadeInUp" style={{animationDelay: '0.4s'}}>
+          <div className="overflow-x-auto p-2 bg-card/30 dark:bg-card/50 rounded-lg shadow-inner">
+            <GitHubActivityGrid />
+          </div>
+        </div>
+        <div className="text-center animate-fadeInUp" style={{animationDelay: '0.6s'}}>
+          <Button asChild variant="outline" size="lg" className="shadow-lg hover:shadow-primary/40 transform hover:scale-105 transition-all duration-300">
+            <Link href="https://github.com/FahimEhtesham73" target="_blank" rel="noopener noreferrer">
+              View My GitHub Profile <ExternalLink className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
         </div>
       </SectionWrapper>
     </div>
