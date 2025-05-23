@@ -2,7 +2,7 @@
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
-import { Briefcase, Lightbulb, Users, Zap } from 'lucide-react';
+import { Briefcase, Lightbulb, Users, Zap, Target, Brain, Handshake } from 'lucide-react';
 
 export default function AboutPage() {
   return (
@@ -15,11 +15,11 @@ export default function AboutPage() {
             <CardContent className="p-0">
               <Image 
                 src="https://placehold.co/400x500.png" 
-                alt="Persona Nova - Professional" 
+                alt="MD. Ehtesamul Haque Fahim - Professional" 
                 width={400} 
                 height={500}
                 className="object-cover w-full h-auto"
-                data-ai-hint="professional person"
+                data-ai-hint="Fahim Ehtesham professional"
                 priority
               />
             </CardContent>
@@ -33,10 +33,13 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent className="text-foreground/80 space-y-4 text-lg">
               <p>
-                From a young age, I was captivated by how technology could shape the world. This curiosity led me down the path of software development, where I discovered my passion for creating intuitive and impactful digital solutions.
+                I am a dedicated Full Stack Software Engineer with robust hands-on experience in the MERN stack and a strong foundation in digital marketing. As a graduate from Bangladesh University of Professionals (BUP) with specialized training in Digital Marketing from Creative IT, I bring a unique blend of technical expertise and marketing acumen.
               </p>
               <p>
-                I began my journey focusing on front-end development, mastering HTML, CSS, and JavaScript. As my skills grew, I delved into modern frameworks like React and Next.js, enabling me to build dynamic and responsive user interfaces. My drive to understand the full picture pushed me to explore backend technologies, including Node.js, Express, and databases like PostgreSQL and MongoDB, transforming me into a versatile full-stack developer.
+                My professional journey began at Next Solution Lab as an Associate Full Stack Software Engineer. There, I honed my skills in writing reusable code and comprehensive documentation. I have developed and collaborated on complex systems using React.js for intuitive frontends, and Node.js, Express, and MongoDB for powerful backends. This includes integrating AI models and deploying applications on AWS EC2. Key projects have involved an office portal for attendance and project management, a multi-vendor e-commerce website, data extraction/annotation tools, and multilingual (English/Japanese) websites.
+              </p>
+              <p>
+                Concurrently, I serve as a part-time Global Marketing Officer at Next Solution Lab, where I contribute to lead generation via LinkedIn Sales Navigator and email marketing. My responsibilities also include performing website audits, conducting keyword research, managing SEO efforts, and utilizing Google Analytics to monitor and enhance website performance.
               </p>
             </CardContent>
           </Card>
@@ -47,12 +50,13 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent className="text-foreground/80 space-y-4 text-lg">
               <p>
-                I believe in writing clean, maintainable, and scalable code. Continuous learning is at the core of my approach, as I constantly seek out new technologies and best practices to enhance my skill set. Collaboration and effective communication are key to my work ethic, ensuring successful project outcomes.
+                I am passionate about integrating my web development skills with marketing strategies to deliver user-centric, scalable solutions. My primary aim is to leverage my expertise in both technology and marketing to contribute to impactful projects and help businesses achieve digital growth in the IT industry.
               </p>
               <ul className="space-y-3">
-                <li className="flex items-start"><Zap className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" /><span><strong>Problem Solver:</strong> I enjoy tackling complex challenges and finding innovative solutions.</span></li>
-                <li className="flex items-start"><Lightbulb className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" /><span><strong>Lifelong Learner:</strong> The tech world is ever-evolving, and I'm committed to growing with it.</span></li>
-                <li className="flex items-start"><Users className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" /><span><strong>Team Player:</strong> I value collaboration and believe the best products are built together.</span></li>
+                <li className="flex items-start"><Target className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" /><span><strong>Problem Solver:</strong> Keen on tackling complex challenges and finding innovative, user-centric solutions through logical thinking.</span></li>
+                <li className="flex items-start"><Lightbulb className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" /><span><strong>Lifelong Learner:</strong> Committed to continuous learning and embracing new challenges in web development and digital marketing.</span></li>
+                <li className="flex items-start"><Users className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" /><span><strong>Team Player:</strong> Value teamwork and possess strong communication and listening skills, believing the best products are built collaboratively.</span></li>
+                <li className="flex items-start"><Brain className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" /><span><strong>Multitasking & Punctual:</strong> Efficiently manage multiple tasks and adhere to timelines with a strong sense of punctuality.</span></li>
               </ul>
             </CardContent>
           </Card>
@@ -63,7 +67,7 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent className="text-foreground/80 text-lg">
               <p>
-                When I&apos;m not coding, I enjoy exploring new hiking trails, diving into sci-fi novels, and experimenting with creative cooking. These activities help me recharge and bring fresh perspectives to my work.
+                When I&apos;m not immersed in development or marketing strategies, I actively seek experiences that broaden my perspective. I have volunteered with UNICEF on the Rubella Measles vaccination campaign, organized community-building events at Impact Hub Dhaka, and participated in BUP ICT Fest and BUP TECHSURGENCE. These activities fuel my passion for teamwork, networking, and continuous personal development.
               </p>
             </CardContent>
           </Card>

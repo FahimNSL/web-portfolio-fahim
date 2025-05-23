@@ -3,13 +3,12 @@
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Progress } from '@/components/ui/progress';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Code, Database, PenTool, Settings, Palette, Zap } from 'lucide-react';
+import { Code, Database, Settings, Cloud, Layers, Terminal, TrendingUp, Users, GitBranch, Cpu, Link2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 interface Skill {
   name: string;
   level: number;
-  icon?: React.ElementType;
 }
 
 interface SkillCategory {
@@ -23,54 +22,102 @@ const skillData: SkillCategory[] = [
     name: 'Frontend Development',
     icon: Code,
     skills: [
-      { name: 'HTML5 & CSS3', level: 95 },
+      { name: 'React JS', level: 90 },
+      { name: 'HTML5', level: 95 },
+      { name: 'CSS3', level: 95 },
       { name: 'JavaScript (ES6+)', level: 90 },
       { name: 'TypeScript', level: 85 },
-      { name: 'React & Next.js', level: 90 },
+      { name: 'Bootstrap', level: 80 },
+      { name: 'Material-UI', level: 80 },
       { name: 'Tailwind CSS', level: 88 },
-      { name: 'Vue.js', level: 70 },
     ],
   },
   {
     name: 'Backend Development',
+    icon: Cpu,
+    skills: [
+      { name: 'Node.js', level: 90 },
+      { name: 'Express.js', level: 90 },
+    ],
+  },
+  {
+    name: 'State Management',
+    icon: Layers,
+    skills: [
+      { name: 'Redux & Redux Toolkit', level: 85 },
+      { name: 'Context API', level: 80 },
+    ],
+  },
+  {
+    name: 'Databases',
     icon: Database,
     skills: [
-      { name: 'Node.js & Express.js', level: 85 },
-      { name: 'Python (Django/Flask)', level: 75 },
-      { name: 'RESTful APIs & GraphQL', level: 80 },
-      { name: 'PostgreSQL & MongoDB', level: 78 },
-      { name: 'Firebase', level: 82 },
+      { name: 'MongoDB', level: 90 },
+      { name: 'MySQL', level: 75 },
     ],
   },
   {
-    name: 'DevOps & Tools',
-    icon: Settings,
+    name: 'Version Control & Tools',
+    icon: GitBranch,
     skills: [
       { name: 'Git & GitHub', level: 95 },
-      { name: 'Docker', level: 70 },
-      { name: 'CI/CD (GitHub Actions)', level: 65 },
-      { name: 'Webpack & Babel', level: 75 },
-      { name: 'VS Code', level: 98 },
+      { name: 'Visual Studio Code', level: 98 },
     ],
   },
   {
-    name: 'Design & UI/UX',
-    icon: Palette,
+    name: 'APIs & Authentication',
+    icon: Link2,
     skills: [
-      { name: 'Figma', level: 80 },
-      { name: 'Responsive Design', level: 92 },
-      { name: 'User Experience Principles', level: 75 },
-      { name: 'Prototyping', level: 70 },
+      { name: 'REST APIs', level: 85 },
+      { name: 'JSON', level: 90 },
+      { name: 'JWT Authentication', level: 80 },
     ],
   },
-   {
-    name: 'Soft Skills',
-    icon: Zap,
+  {
+    name: 'Deployment & Cloud',
+    icon: Cloud,
     skills: [
-      { name: 'Problem Solving', level: 90 },
-      { name: 'Communication', level: 85 },
-      { name: 'Team Collaboration', level: 88 },
-      { name: 'Adaptability', level: 92 },
+      { name: 'AWS EC2', level: 85 },
+      { name: 'AWS Lambda', level: 80 },
+      { name: 'AWS S3 Bucket', level: 75 },
+      { name: 'AWS DocumentDB', level: 70 },
+      { name: 'AWS CloudFront', level: 70 },
+      { name: 'Netlify', level: 80 },
+      { name: 'Heroku', level: 70 },
+      { name: 'cPanel', level: 70 },
+      { name: 'Vercel', level: 75 },
+      { name: 'Cloudinary', level: 70 },
+    ],
+  },
+  {
+    name: 'Operating Systems',
+    icon: Terminal,
+    skills: [
+      { name: 'Linux (Ubuntu)', level: 85 },
+      { name: 'Windows', level: 90 },
+    ],
+  },
+  {
+    name: 'Digital Marketing',
+    icon: TrendingUp,
+    skills: [
+      { name: 'Website Audit', level: 85 },
+      { name: 'SEO & Keyword Research', level: 88 },
+      { name: 'Google Analytics', level: 85 },
+      { name: 'Social Media Marketing', level: 75 },
+      { name: 'Email Marketing', level: 80 },
+      { name: 'Wordpress', level: 70 },
+    ],
+  },
+  {
+    name: 'Soft Skills',
+    icon: Users,
+    skills: [
+      { name: 'Problem Solving & Logical Thinking', level: 90 },
+      { name: 'Professional Communication', level: 95 },
+      { name: 'Team Collaboration', level: 92 },
+      { name: 'Adaptability & Facing Challenges', level: 90 },
+      { name: 'Multitasking & Punctuality', level: 88 },
     ],
   },
 ];

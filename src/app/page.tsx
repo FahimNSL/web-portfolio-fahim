@@ -19,18 +19,18 @@ export default function HomePage() {
         <div className="relative z-10">
           <Image 
             src="https://placehold.co/150x150.png" 
-            alt="Profile Picture" 
+            alt="MD. Ehtesamul Haque Fahim" 
             width={150} 
             height={150} 
             className="rounded-full mx-auto mb-6 border-4 border-primary/50 shadow-lg animate-fadeInUp"
-            data-ai-hint="professional portrait"
+            data-ai-hint="Fahim Ehtesham portrait"
             priority
           />
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="text-neon-glow animate-fadeInUp animation-delay-200">Hello, I&apos;m Persona Nova</span>
+            <span className="text-neon-glow animate-fadeInUp animation-delay-200">Hello, I&apos;m MD. Ehtesamul Haque Fahim</span>
           </h1>
           <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto animate-fadeInUp animation-delay-400">
-            A passionate <span className="text-primary font-semibold">Full-Stack Developer</span> crafting innovative digital experiences. I turn complex problems into elegant solutions.
+            A dedicated <span className="text-primary font-semibold">Full Stack Software Engineer (MERN)</span> with a strong foundation in digital marketing. I am passionate about integrating web development skills with marketing strategies to deliver user-centric, scalable solutions.
           </p>
           <div className="space-x-4 animate-fadeInUp animation-delay-600">
             <Button asChild size="lg" className="shadow-lg hover:shadow-primary/40 transform hover:scale-105 transition-all duration-300">
@@ -52,7 +52,7 @@ export default function HomePage() {
           <div className="animate-fadeInUp animation-delay-800">
             <h2 className="text-3xl font-bold mb-4 text-primary">A Glimpse About Me</h2>
             <p className="text-lg text-foreground/80 mb-4">
-              I thrive on building beautiful, functional, and user-centric web applications. With a keen eye for detail and a drive for continuous learning, I specialize in modern JavaScript frameworks and cutting-edge technologies.
+              I thrive on building user-centric, scalable web applications using the MERN stack. With experience in developing complex systems, including AI model integration and multi-vendor e-commerce platforms, I aim to leverage my expertise to contribute to impactful projects and help businesses grow digitally.
             </p>
             <p className="text-lg text-foreground/80">
               My goal is to not just write code, but to create experiences that resonate and make a difference.
@@ -70,7 +70,7 @@ export default function HomePage() {
               width={600} 
               height={400} 
               className="rounded-lg shadow-xl"
-              data-ai-hint="abstract coding"
+              data-ai-hint="modern web development"
             />
           </div>
         </div>

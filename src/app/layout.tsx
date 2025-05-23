@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Persona Nova | Portfolio',
-  description: 'The personal portfolio of a passionate developer.',
+  title: 'MD. Ehtesamul Haque Fahim | Full Stack Developer',
+  description: 'The personal portfolio of MD. Ehtesamul Haque Fahim, a passionate Full Stack Software Engineer (MERN) and Digital Marketer.',
 };
 
 export default function RootLayout({

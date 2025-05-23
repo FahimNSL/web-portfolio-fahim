@@ -4,37 +4,37 @@ import ProjectCard, { type Project } from '@/components/shared/ProjectCard';
 
 const projectsData: Project[] = [
   {
-    title: 'E-commerce Platform',
-    description: 'A full-featured e-commerce website with product listings, cart functionality, user authentication, and payment integration.',
-    imageUrl: 'https://placehold.co/600x400.png?text=E-commerce',
-    imageHint: 'online store',
-    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe', 'Firebase'],
-    githubUrl: 'https://github.com/yourusername/ecommerce-platform',
-    liveUrl: '#', 
+    title: 'White Board Application',
+    description: 'A collaborative whiteboarding tool for real-time sketching and idea sharing. Built with the MERN stack, enabling seamless teamwork.',
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'digital whiteboard collaboration',
+    techStack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Socket.IO'],
+    githubUrl: 'https://github.com/FahimEhtesham73/whiteboard-application', // Assumed URL
   },
   {
-    title: 'Task Management App',
-    description: 'A collaborative task management tool allowing users to create, assign, and track tasks within teams.',
-    imageUrl: 'https://placehold.co/600x400.png?text=Task+App',
-    imageHint: 'productivity tool',
-    techStack: ['React', 'Redux', 'Node.js', 'Express', 'MongoDB'],
-    githubUrl: 'https://github.com/yourusername/task-management-app',
+    title: 'Job Portal',
+    description: 'A comprehensive platform connecting job seekers with employers, featuring robust job listings, application tracking, and user profile management. Leverages the MERN stack and AWS for scalability.',
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'job search platform',
+    techStack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Redux', 'AWS EC2'],
+    githubUrl: 'https://github.com/FahimEhtesham73/job-portal', // Assumed URL
+    liveUrl: '#', // CV mentions Live Link but no URL provided
   },
   {
-    title: 'Personal Blog',
-    description: 'A minimalistic and fast personal blog built with a static site generator, focusing on content and performance.',
-    imageUrl: 'https://placehold.co/600x400.png?text=Blog',
-    imageHint: 'writing content',
-    techStack: ['Astro', 'Markdown', 'Tailwind CSS', 'Vercel'],
-    liveUrl: '#',
+    title: 'Employee Evaluation System',
+    description: 'An office portal module designed for managing employee evaluations, tracking performance metrics, and facilitating constructive feedback. Integrated within a larger MERN-based application.',
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'performance review system',
+    techStack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT Authentication'],
+    githubUrl: 'https://github.com/FahimEhtesham73/employee-evaluation', // Assumed URL
   },
   {
-    title: 'AI Powered Chatbot',
-    description: 'An intelligent chatbot integrating with a Large Language Model to provide customer support and answer queries.',
-    imageUrl: 'https://placehold.co/600x400.png?text=AI+Chatbot',
-    imageHint: 'artificial intelligence',
-    techStack: ['Python', 'Flask', 'OpenAI API', 'React'],
-    githubUrl: 'https://github.com/yourusername/ai-chatbot',
+    title: 'Multi-Vendor E-commerce Site',
+    description: 'Developed a feature-rich multi-vendor e-commerce website, enabling various sellers to list and manage their products. Focused on scalability, user experience, and AI model integration.',
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'online marketplace multivendor',
+    techStack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'AWS Lambda', 'AI Integration'],
+    githubUrl: 'https://github.com/FahimEhtesham73/multi-vendor-ecommerce', // Assumed URL
   },
 ];
 

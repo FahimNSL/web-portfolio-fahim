@@ -28,13 +28,13 @@ export default function ProjectCard({ project, animationDelay = '0s' }: ProjectC
       style={{ animationDelay }}
     >
       <CardHeader className="p-0">
-        <div className="aspect-video relative">
+        <div className="aspect-video relative group">
           <Image 
             src={project.imageUrl} 
             alt={project.title} 
-            layout="fill"
-            objectFit="cover"
-            className="transition-transform duration-500 group-hover:scale-105"
+            fill // Changed layout to fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Added sizes attribute
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
             data-ai-hint={project.imageHint}
           />
         </div>
@@ -58,7 +58,7 @@ export default function ProjectCard({ project, animationDelay = '0s' }: ProjectC
             </Link>
           </Button>
         )}
-        {project.liveUrl && (
+        {project.liveUrl && project.liveUrl !== '#' && (
           <Button asChild size="sm" className="hover:opacity-90">
             <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
               <ExternalLink className="mr-2 h-4 w-4" /> Live Demo

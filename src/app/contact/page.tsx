@@ -11,7 +11,7 @@ import { useForm, type SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useToast } from "@/hooks/use-toast";
-import { Github, Linkedin, Twitter, Mail, Phone } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone } from 'lucide-react';
 import Link from 'next/link';
 
 const contactFormSchema = z.object({
@@ -101,11 +101,11 @@ export default function ContactPage() {
             <CardContent className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-primary" />
-                <a href="mailto:hello@personanova.com" className="text-foreground/80 hover:text-primary transition-colors">hello@personanova.com</a>
+                <a href="mailto:ehtesamulhaque32@gmail.com" className="text-foreground/80 hover:text-primary transition-colors">ehtesamulhaque32@gmail.com</a>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-primary" />
-                <span className="text-foreground/80">(123) 456-7890</span>
+                <span className="text-foreground/80">+880 1991-283682</span>
               </div>
             </CardContent>
           </Card>
@@ -115,14 +115,11 @@ export default function ContactPage() {
               <CardTitle className="text-2xl text-primary/90">Connect With Me</CardTitle>
             </CardHeader>
             <CardContent className="flex space-x-6">
-              <Link href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-foreground/70 hover:text-primary transition-colors">
+              <Link href="https://github.com/FahimEhtesham73" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-foreground/70 hover:text-primary transition-colors">
                 <Github className="h-8 w-8" />
               </Link>
-              <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-foreground/70 hover:text-primary transition-colors">
+              <Link href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-foreground/70 hover:text-primary transition-colors">
                 <Linkedin className="h-8 w-8" />
-              </Link>
-              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-foreground/70 hover:text-primary transition-colors">
-                <Twitter className="h-8 w-8" />
               </Link>
             </CardContent>
           </Card>
