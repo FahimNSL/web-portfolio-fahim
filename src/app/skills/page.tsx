@@ -3,7 +3,7 @@
 import React from 'react'; // Added React import for React.cloneElement
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Code, Database, Settings, Cloud, Layers, Terminal, TrendingUp, Users, GitBranch, Cpu, Link2, Palette, Briefcase, CheckCircle, Search, ShieldCheck, Lightbulb, Mail } from 'lucide-react'; // Added Mail here
+import { Code, Database, Settings, Cloud, Layers, Terminal, TrendingUp, Users, GitBranch, Cpu, Link2, Palette, Briefcase, CheckCircle, Search, ShieldCheck, Lightbulb, Mail } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 // Custom SVG Logo Components
@@ -63,6 +63,17 @@ const TailwindCssLogo = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const ReduxLogo = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className={cn("h-10 w-10", className)}>
+    <g transform="translate(50,50)">
+      <path fill="currentColor" d="M0-38c17.35,0,27.88,12.24,27.88,28.49,0,16.06-10.72,28.09-27.88,28.09S-27.88,8.12-27.88-9.51C-27.88-25.76-17.35-38,0-38Zm0,8.36c-10.72,0-19.52,8.55-19.52,19.73s8.8,20.13,19.52,20.13,19.52-8.95,19.52-20.13S10.72-29.64,0-29.64Z"/>
+      <path fill="currentColor" d="M0-24.92c10.72,0,19.52,8.55,19.52,19.73s-8.8,20.13-19.52,20.13S-19.52,3.36-19.52-7.82c0-11.18,8.8-17.1,19.52-17.1Zm0,31.73c5.2,0,9.56-4.17,9.56-9.35s-4.36-9.35-9.56-9.35-9.56,4.17-9.56,9.35S-5.2,6.81,0,6.81Z" transform="rotate(60)"/>
+      <path fill="currentColor" d="M0-24.92c10.72,0,19.52,8.55,19.52,19.73s-8.8,20.13-19.52,20.13S-19.52,3.36-19.52-7.82c0-11.18,8.8-17.1,19.52-17.1Zm0,31.73c5.2,0,9.56-4.17,9.56-9.35s-4.36-9.35-9.56-9.35-9.56,4.17-9.56,9.35S-5.2,6.81,0,6.81Z" transform="rotate(-60)"/>
+    </g>
+  </svg>
+);
+
+
 interface Skill {
   name: string;
   icon?: React.ElementType; // Lucide icon
@@ -102,7 +113,7 @@ const skillData: SkillCategory[] = [
     name: 'State Management',
     icon: Layers,
     skills: [
-      { name: 'Redux & Redux Toolkit', icon: Layers }, 
+      { name: 'Redux & Redux Toolkit', customIcon: <ReduxLogo /> }, 
       { name: 'Context API', icon: Layers },
     ],
   },
@@ -163,7 +174,7 @@ const skillData: SkillCategory[] = [
       { name: 'SEO & Keyword Research', icon: Search },
       { name: 'Google Analytics', icon: TrendingUp },
       { name: 'Social Media Marketing', icon: Users },
-      { name: 'Email Marketing', icon: Mail }, // Using Mail from lucide-react
+      { name: 'Email Marketing', icon: Mail },
       { name: 'Wordpress', icon: Palette }, 
     ],
   },
@@ -179,8 +190,6 @@ const skillData: SkillCategory[] = [
     ],
   },
 ];
-
-// Removed custom Mail SVG definition as it's now imported from lucide-react
 
 export default function SkillsPage() {
   return (
