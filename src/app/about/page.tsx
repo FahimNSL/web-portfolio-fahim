@@ -2,7 +2,7 @@
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
-import { Briefcase, Lightbulb, Users, Zap, Target, Brain, Handshake } from 'lucide-react';
+import { Briefcase, Lightbulb, Users, Zap, Target, Brain, Handshake, GraduationCap, Award } from 'lucide-react';
 
 export default function AboutPage() {
   return (
@@ -14,10 +14,10 @@ export default function AboutPage() {
           <Card className="overflow-hidden shadow-xl">
             <CardContent className="p-0">
               <Image 
-                src="https://placehold.co/400x500.png" 
+                src="/Fahim.png" 
                 alt="MD. Ehtesamul Haque Fahim - Professional" 
-                width={400} 
-                height={500}
+                width={900} 
+                height={1000}
                 className="object-cover w-full h-auto"
                 data-ai-hint="professional portrait"
                 priority
@@ -46,7 +46,31 @@ export default function AboutPage() {
 
           <Card className="bg-card/80 backdrop-blur-sm shadow-lg">
             <CardHeader>
-              <CardTitle className="text-2xl text-primary/90">Philosophy & Values</CardTitle>
+              <CardTitle className="text-2xl text-primary/90">Education &amp; Certifications</CardTitle>
+            </CardHeader>
+            <CardContent className="text-foreground/80 space-y-6 text-lg">
+              <div className="flex items-start space-x-4">
+                <GraduationCap className="h-8 w-8 text-primary mt-1 shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-xl text-primary/90">Graduate</h3>
+                  <p className="text-foreground/80">Bangladesh University of Professionals (BUP)</p>
+                  <p className="text-sm text-muted-foreground">Dhaka, Bangladesh</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <Award className="h-8 w-8 text-primary mt-1 shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-xl text-primary/90">Specialized Training in Digital Marketing</h3>
+                  <p className="text-foreground/80">Creative IT Institute</p>
+                  <p className="text-sm text-muted-foreground">Dhaka, Bangladesh</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-card/80 backdrop-blur-sm shadow-lg">
+            <CardHeader>
+              <CardTitle className="text-2xl text-primary/90">Philosophy &amp; Values</CardTitle>
             </CardHeader>
             <CardContent className="text-foreground/80 space-y-4 text-lg">
               <p>
@@ -56,7 +80,7 @@ export default function AboutPage() {
                 <li className="flex items-start"><Target className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" /><span><strong>Problem Solver:</strong> Keen on tackling complex challenges and finding innovative, user-centric solutions through logical thinking.</span></li>
                 <li className="flex items-start"><Lightbulb className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" /><span><strong>Lifelong Learner:</strong> Committed to continuous learning and embracing new challenges in web development and digital marketing.</span></li>
                 <li className="flex items-start"><Users className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" /><span><strong>Team Player:</strong> Value teamwork and possess strong communication and listening skills, believing the best products are built collaboratively.</span></li>
-                <li className="flex items-start"><Brain className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" /><span><strong>Multitasking & Punctual:</strong> Efficiently manage multiple tasks and adhere to timelines with a strong sense of punctuality.</span></li>
+                <li className="flex items-start"><Brain className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" /><span><strong>Multitasking &amp; Punctual:</strong> Efficiently manage multiple tasks and adhere to timelines with a strong sense of punctuality.</span></li>
               </ul>
             </CardContent>
           </Card>

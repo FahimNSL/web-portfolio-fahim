@@ -37,7 +37,7 @@ export default function HomePage() {
             <TypingText 
               text="MD. Ehtesamul Haque Fahim" 
               typingSpeed={100} 
-              initialDelayForTyping={500} // Starts after h1 fade in (0.3s delay + 0.6s duration)
+              initialDelayForTyping={600} // Starts after h1 fade in (0.3s delay + 0.6s duration)
               className="inline-block"
               cursorClassName="inline-block w-[3px] h-[0.85em] bg-primary animate-blink align-text-bottom ml-1"
             />
