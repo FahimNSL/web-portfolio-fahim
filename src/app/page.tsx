@@ -32,7 +32,7 @@ export default function HomePage() {
             Hello, I&apos;m
           </p>
           <h1 
-            className="text-5xl md:text-7xl font-bold mb-6 text-neon-glow animate-fadeInUp animation-delay-300"
+            className="text-5xl md:text-7xl font-bold mb-4 text-neon-glow animate-fadeInUp animation-delay-300"
           >
             <TypingText 
               text="MD. Ehtesamul Haque Fahim" 
