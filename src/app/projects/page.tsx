@@ -18,6 +18,7 @@ export const projectsData: Project[] = [
     imageHint: 'digital whiteboard', // For main card image
     techStack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Socket.IO'],
     githubUrl: 'https://github.com/FahimEhtesham73/whiteboard-application',
+    liveUrl: 'https://whiteboard.fahimehtesham.com', // Placeholder - replace with actual link
   },
   {
     slug: 'job-portal',
@@ -32,7 +33,7 @@ export const projectsData: Project[] = [
     imageHint: 'job search',
     techStack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Redux', 'AWS EC2'],
     githubUrl: 'https://github.com/FahimEhtesham73/job-portal',
-    liveUrl: '#', 
+    liveUrl: 'https://jobs.fahimehtesham.com', // Placeholder - replace with actual link
   },
   {
     slug: 'employee-evaluation-system',
@@ -48,6 +49,7 @@ export const projectsData: Project[] = [
     imageHint: 'performance review',
     techStack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT Authentication'],
     githubUrl: 'https://github.com/FahimEhtesham73/employee-evaluation',
+    // No liveUrl, as it's likely an internal tool
   },
   {
     slug: 'multi-vendor-e-commerce-site',
@@ -62,6 +64,7 @@ export const projectsData: Project[] = [
     imageHint: 'online marketplace',
     techStack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'AWS Lambda', 'AI Integration'],
     githubUrl: 'https://github.com/FahimEhtesham73/multi-vendor-ecommerce',
+    liveUrl: 'https://ecommerce.fahimehtesham.com', // Placeholder - replace with actual link
   },
 ];
 
