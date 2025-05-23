@@ -22,8 +22,8 @@ export default function HomePage() {
           <Image 
             src="/FahimPro.png" 
             alt="MD. Ehtesamul Haque Fahim" 
-            width={150} 
-            height={150} 
+            width={300} 
+            height={300} 
             className="rounded-full mx-auto mb-6 border-4 border-primary/50 shadow-lg animate-fadeInUp"
             data-ai-hint="developer portrait"
             priority
@@ -32,7 +32,7 @@ export default function HomePage() {
             Hello, I&apos;m
           </p>
           <h1 
-            className="text-5xl md:text-7xl font-bold mb-6 text-neon-glow animate-fadeInUp animation-delay-300"
+            className="text-5xl md:text-7xl font-bold mb-4 text-neon-glow animate-fadeInUp animation-delay-300"
           >
             <TypingText 
               text="MD. Ehtesamul Haque Fahim" 
