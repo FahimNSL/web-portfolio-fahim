@@ -3,7 +3,7 @@
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Progress } from '@/components/ui/progress';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Code, Database, Settings, Cloud, Layers, Terminal, TrendingUp, Users, GitBranch, Cpu, Link2 } from 'lucide-react';
+import { Code, Database, Settings, Cloud, Layers, Terminal, TrendingUp, Users, GitBranch, Cpu, Link2, Palette } from 'lucide-react'; // Added Palette for an example
 import { useEffect, useState } from 'react';
 
 interface Skill {
@@ -129,23 +129,34 @@ export default function SkillsPage() {
   }, []);
 
   return (
-    <SectionWrapper>
-      <h1 className="text-4xl md:text-5xl font-bold text-center mb-16 text-primary animate-fadeInUp">My Expertise</h1>
+    <SectionWrapper className="relative overflow-hidden"> {/* Added relative and overflow-hidden */}
+      {/* Subtle background elements */}
+      <div className="absolute inset-0 pointer-events-none opacity-5 -z-10">
+        <div className="absolute top-1/10 left-1/5 w-24 h-24 bg-primary/10 rounded-full animate-subtle-float animation-delay-0 blur-xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-32 h-32 bg-secondary/15 rounded-lg animate-subtle-float animation-delay-1000 blur-lg transform rotate-45"></div>
+        <div className="absolute top-1/2 right-1/6 w-20 h-20 bg-primary/5 rounded-xl animate-subtle-float animation-delay-2000 blur-md"></div>
+        <div className="absolute bottom-1/5 left-1/6 w-28 h-28 bg-secondary/10 rounded-full animate-subtle-float animation-delay-500 blur-xl"></div>
+      </div>
+
+      <h1 className="text-4xl md:text-5xl font-bold text-center mb-16 text-primary animate-fadeInUp relative z-10">My Expertise</h1>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
         {skillData.map((category, index) => (
           <Card 
             key={category.name} 
-            className="bg-card/80 backdrop-blur-sm shadow-xl hover:shadow-primary/30 transition-shadow duration-300 animate-fadeInUp"
+            className="bg-card/80 backdrop-blur-sm shadow-xl hover:shadow-primary/30 transition-all duration-300 animate-fadeInUp group" // Added 'group' for group-hover
             style={{ animationDelay: `${index * 0.1 + 0.2}s` }}
           >
             <CardHeader className="flex flex-row items-center space-x-3 pb-4">
-              <category.icon className="h-8 w-8 text-primary" />
+              <category.icon className="h-8 w-8 text-primary group-hover:scale-110 group-hover:rotate-[-6deg] transition-transform duration-300" /> {/* Icon animation */}
               <CardTitle className="text-2xl text-primary/90">{category.name}</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-5">
+            <CardContent className="space-y-3"> {/* Adjusted spacing slightly */}
               {category.skills.map(skill => (
-                <div key={skill.name}>
+                <div 
+                  key={skill.name} 
+                  className="p-2 -m-2 rounded-lg hover:bg-primary/5 transition-all duration-200 transform hover:scale-[1.01]" // Hover effect for skill item
+                >
                   <div className="flex justify-between items-center mb-1">
                     <span className="text-sm font-medium text-foreground/90">{skill.name}</span>
                     <span className="text-xs font-semibold text-primary">{skill.level}%</span>
@@ -153,7 +164,7 @@ export default function SkillsPage() {
                   <Progress 
                     value={mounted ? skill.level : 0} 
                     className="h-3 transition-all duration-1000 ease-out" 
-                    indicatorClassName="bg-gradient-to-r from-primary/70 to-primary"
+                    indicatorClassName="bg-gradient-to-r from-primary/70 to-primary group-hover:from-primary group-hover:to-accent" // Enhanced progress bar on parent hover
                   />
                 </div>
               ))}
@@ -164,3 +175,4 @@ export default function SkillsPage() {
     </SectionWrapper>
   );
 }
+
