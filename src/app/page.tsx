@@ -26,13 +26,16 @@ export default function HomePage() {
             data-ai-hint="Fahim Ehtesham portrait"
             priority
           />
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="text-neon-glow animate-fadeInUp animation-delay-200">Hello, I&apos;m MD. Ehtesamul Haque Fahim</span>
+          <p className="text-2xl md:text-3xl text-neon-glow mb-1 animate-fadeInUp animation-delay-200">
+            Hello, I&apos;m
+          </p>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-neon-glow animate-fadeInUp animation-delay-300">
+            MD. Ehtesamul Haque Fahim
           </h1>
-          <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto animate-fadeInUp animation-delay-400">
+          <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto animate-fadeInUp animation-delay-500">
             A dedicated <span className="text-primary font-semibold">Full Stack Software Engineer (MERN)</span> with a strong foundation in digital marketing. I am passionate about integrating web development skills with marketing strategies to deliver user-centric, scalable solutions.
           </p>
-          <div className="space-x-4 animate-fadeInUp animation-delay-600">
+          <div className="space-x-4 animate-fadeInUp animation-delay-700">
             <Button asChild size="lg" className="shadow-lg hover:shadow-primary/40 transform hover:scale-105 transition-all duration-300">
               <Link href="/projects">
                 View My Work <ArrowRight className="ml-2 h-5 w-5" />
@@ -40,7 +43,7 @@ export default function HomePage() {
             </Button>
             <Button asChild variant="outline" size="lg" className="shadow-lg hover:shadow-primary/40 transform hover:scale-105 transition-all duration-300">
               <Link href="/contact">
-                Get In Touch <DownloadCloud className="ml-2 h-5 w-5" />
+                Get In Touch <DownloadCloud className="ml-2 h-5 w-5" /> {/* Changed icon to DownloadCloud as per original */}
               </Link>
             </Button>
           </div>
