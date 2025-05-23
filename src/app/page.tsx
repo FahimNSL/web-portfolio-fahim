@@ -24,7 +24,7 @@ export default function HomePage() {
             width={150} 
             height={150} 
             className="rounded-full mx-auto mb-6 border-4 border-primary/50 shadow-lg animate-fadeInUp"
-            data-ai-hint="Fahim Ehtesham portrait"
+            data-ai-hint="developer portrait"
             priority
           />
           <p className="text-2xl md:text-3xl text-neon-glow mb-1 animate-fadeInUp animation-delay-200">
@@ -85,7 +85,7 @@ export default function HomePage() {
               width={600} 
               height={400} 
               className="rounded-lg shadow-xl"
-              data-ai-hint="modern web development"
+              data-ai-hint="web development"
             />
           </div>
         </div>

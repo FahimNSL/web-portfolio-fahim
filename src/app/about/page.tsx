@@ -19,7 +19,7 @@ export default function AboutPage() {
                 width={400} 
                 height={500}
                 className="object-cover w-full h-auto"
-                data-ai-hint="Fahim Ehtesham professional"
+                data-ai-hint="professional portrait"
                 priority
               />
             </CardContent>

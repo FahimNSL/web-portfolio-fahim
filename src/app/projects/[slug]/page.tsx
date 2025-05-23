@@ -12,8 +12,12 @@ import { notFound } from 'next/navigation';
 
 // Helper function to generate AI hints for screenshots
 function getScreenshotHint(projectTitle: string): string {
-  const baseHint = projectTitle.toLowerCase().replace(/\s+/g, '-').substring(0, 20);
-  return `${baseHint} screenshot`;
+  // Get the first word of the project title, make it lowercase
+  const firstWord = (projectTitle.split(' ')[0] || 'project').toLowerCase();
+  // Sanitize it to be a single keyword by removing non-alphanumeric characters
+  const keyword = firstWord.replace(/[^a-z0-9]/gi, '');
+  // Return a two-word hint
+  return `${keyword} interface`;
 }
 
 
