@@ -20,7 +20,7 @@ export default function HomePage() {
         
         <div className="relative z-10">
           <Image 
-            src="https://placehold.co/150x150.png" 
+            src="/FahimPro.png" 
             alt="MD. Ehtesamul Haque Fahim" 
             width={150} 
             height={150} 
