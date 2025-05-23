@@ -1,13 +1,12 @@
 // src/app/skills/page.tsx
 "use client"; 
+import React from 'react'; // Added React import for React.cloneElement
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Code, Database, Settings, Cloud, Layers, Terminal, TrendingUp, Users, GitBranch, Cpu, Link2, Palette, Briefcase, CheckCircle, Search, ShieldCheck, Lightbulb } from 'lucide-react';
-import { cn } from '@/lib/utils'; // Ensure cn is imported if used by custom logos
+import { Code, Database, Settings, Cloud, Layers, Terminal, TrendingUp, Users, GitBranch, Cpu, Link2, Palette, Briefcase, CheckCircle, Search, ShieldCheck, Lightbulb, Mail } from 'lucide-react'; // Added Mail here
+import { cn } from '@/lib/utils';
 
-// Custom SVG Logo Components (Simplified)
-// These are defined here for simplicity in this example. In a larger app, they might be in a separate file.
-
+// Custom SVG Logo Components
 const Html5Logo = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className={cn("h-10 w-10", className)}>
     <path fill="#E34F26" d="M20.4 113.4l-8.6-97.3L64 4.3l52.2 11.8 8.6 97.3L64 123.7z"/>
@@ -64,7 +63,6 @@ const TailwindCssLogo = ({ className }: { className?: string }) => (
   </svg>
 );
 
-
 interface Skill {
   name: string;
   icon?: React.ElementType; // Lucide icon
@@ -87,7 +85,7 @@ const skillData: SkillCategory[] = [
       { name: 'CSS3', customIcon: <Css3Logo /> },
       { name: 'JavaScript (ES6+)', customIcon: <JavaScriptLogo /> },
       { name: 'TypeScript', customIcon: <TypeScriptLogo /> },
-      { name: 'Bootstrap', icon: Palette }, // Using Palette as a generic UI icon
+      { name: 'Bootstrap', icon: Palette }, 
       { name: 'Material-UI', icon: Palette },
       { name: 'Tailwind CSS', customIcon: <TailwindCssLogo /> },
     ],
@@ -97,14 +95,14 @@ const skillData: SkillCategory[] = [
     icon: Cpu,
     skills: [
       { name: 'Node.js', customIcon: <NodeJsLogo /> },
-      { name: 'Express.js', icon: Settings }, // Generic settings/config icon
+      { name: 'Express.js', icon: Settings }, 
     ],
   },
   {
     name: 'State Management',
     icon: Layers,
     skills: [
-      { name: 'Redux & Redux Toolkit', icon: Layers }, // Or a more specific one if available
+      { name: 'Redux & Redux Toolkit', icon: Layers }, 
       { name: 'Context API', icon: Layers },
     ],
   },
@@ -121,7 +119,7 @@ const skillData: SkillCategory[] = [
     icon: GitBranch,
     skills: [
       { name: 'Git & GitHub', icon: GitBranch },
-      { name: 'Visual Studio Code', icon: Terminal }, // Editor icon
+      { name: 'Visual Studio Code', icon: Terminal }, 
     ],
   },
   {
@@ -129,7 +127,7 @@ const skillData: SkillCategory[] = [
     icon: Link2,
     skills: [
       { name: 'REST APIs', icon: Link2 },
-      { name: 'JSON', icon: Code }, // Code icon for data format
+      { name: 'JSON', icon: Code }, 
       { name: 'JWT Authentication', icon: ShieldCheck },
     ],
   },
@@ -154,7 +152,7 @@ const skillData: SkillCategory[] = [
     icon: Terminal,
     skills: [
       { name: 'Linux (Ubuntu)', icon: Terminal },
-      { name: 'Windows', icon: Terminal }, // Using generic terminal for OS
+      { name: 'Windows', icon: Terminal }, 
     ],
   },
   {
@@ -165,8 +163,8 @@ const skillData: SkillCategory[] = [
       { name: 'SEO & Keyword Research', icon: Search },
       { name: 'Google Analytics', icon: TrendingUp },
       { name: 'Social Media Marketing', icon: Users },
-      { name: 'Email Marketing', icon: Mail }, // Mail icon from lucide-react (not present in provided context but common)
-      { name: 'Wordpress', icon: Palette }, // Generic CMS/design icon
+      { name: 'Email Marketing', icon: Mail }, // Using Mail from lucide-react
+      { name: 'Wordpress', icon: Palette }, 
     ],
   },
   {
@@ -182,11 +180,7 @@ const skillData: SkillCategory[] = [
   },
 ];
 
-// Helper for Mail icon if not available (example)
-const Mail = ({className}: {className?: string}) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cn(className)}><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-);
-
+// Removed custom Mail SVG definition as it's now imported from lucide-react
 
 export default function SkillsPage() {
   return (
