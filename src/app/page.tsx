@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, DownloadCloud } from 'lucide-react';
+import TypingText from '@/components/shared/TypingText'; // Import the new component
 
 export default function HomePage() {
   return (
@@ -29,8 +30,19 @@ export default function HomePage() {
           <p className="text-2xl md:text-3xl text-neon-glow mb-1 animate-fadeInUp animation-delay-200">
             Hello, I&apos;m
           </p>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-neon-glow animate-fadeInUp animation-delay-300">
-            MD. Ehtesamul Haque Fahim
+          <h1 
+            className="text-5xl md:text-7xl font-bold mb-6 text-neon-glow animate-fadeInUp animation-delay-300"
+            style={{ minHeight: '1.2em' }} // Prevents layout shift while text types out
+          >
+            <TypingText 
+              text="MD. Ehtesamul Haque Fahim" 
+              typingSpeed={100} 
+              // The h1 has animation-delay-300 (0.3s) and fadeInUp duration is 0.6s.
+              // So, start typing after 0.3s + 0.6s = 0.9s (900ms).
+              initialDelayForTyping={900}
+              className="inline-block" // Ensures proper flow with the cursor
+              cursorClassName="inline-block w-[3px] h-[0.85em] bg-primary animate-blink align-text-bottom ml-1"
+            />
           </h1>
           <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto animate-fadeInUp animation-delay-500">
             A dedicated <span className="text-primary font-semibold">Full Stack Software Engineer (MERN)</span> with a strong foundation in digital marketing. I am passionate about integrating web development skills with marketing strategies to deliver user-centric, scalable solutions.
@@ -43,7 +55,7 @@ export default function HomePage() {
             </Button>
             <Button asChild variant="outline" size="lg" className="shadow-lg hover:shadow-primary/40 transform hover:scale-105 transition-all duration-300">
               <Link href="/contact">
-                Get In Touch <DownloadCloud className="ml-2 h-5 w-5" /> {/* Changed icon to DownloadCloud as per original */}
+                Get In Touch <DownloadCloud className="ml-2 h-5 w-5" />
               </Link>
             </Button>
           </div>
