@@ -32,17 +32,17 @@
   }
 
   .dark {
-    --background: 218 28% 8%; /* #0e1117 */
-    --foreground: 210 17% 93%; /* #e5e7eb */
+    --background: 218 28% 8%; /* #0e1117 - Deep cool gray, almost black */
+    --foreground: 210 17% 93%; /* #e5e7eb - Light gray for text */
 
-    --card: 218 17% 13%; /* #1b1f26 */
+    --card: 218 17% 13%; /* #1b1f26 - Slightly lighter cool gray for cards */
     --card-foreground: 210 17% 93%; /* #e5e7eb */
 
     --popover: 218 17% 13%; /* #1b1f26 */
     --popover-foreground: 210 17% 93%; /* #e5e7eb */
 
-    --primary: 339 100% 50%; /* #ff0057 */
-    --primary-foreground: 0 0% 100%; /* White text on pink/red buttons */
+    --primary: 174 72% 56%; /* Bright Cyan (from image, e.g., #40E0D0) */
+    --primary-foreground: 210 100% 15%; /* Dark text for contrast on bright cyan buttons */
 
     --secondary: 218 17% 22%; /* A bit lighter than card for secondary buttons/elements */
     --secondary-foreground: 210 17% 93%; /* Text on secondary elements */
@@ -50,21 +50,21 @@
     --muted: 218 17% 28%; /* For less important elements */
     --muted-foreground: 210 10% 70%; /* Dimmer text */
 
-    --accent: 339 100% 50%; /* #ff0057 - same as primary for consistency in neon glow */
-    --accent-foreground: 0 0% 100%; /* White text on accent elements */
+    --accent: 174 72% 56%; /* Bright Cyan - same as primary for neon glow consistency */
+    --accent-foreground: 210 100% 15%; /* Dark text on accent elements */
 
     --destructive: 0 72% 51%; /* Standard destructive red */
     --destructive-foreground: 0 0% 98%;
 
     --border: 218 17% 25%; /* Border for inputs, cards etc. */
     --input: 218 17% 20%; /* Input background */
-    --ring: 339 100% 50%; /* Focus rings with accent color */
+    --ring: 174 72% 56%; /* Focus rings with new accent color */
     
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --chart-1: 180 60% 45%; /* Teal */
+    --chart-2: 170 70% 50%; /* Lighter Cyan/Teal */
+    --chart-3: 190 55% 60%; /* Bluer Cyan */
+    --chart-4: 160 65% 55%; /* Greener Aqua */
+    --chart-5: 175 80% 40%; /* Deeper Cyan/Teal */
   }
 }
 
