@@ -2,7 +2,7 @@
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
-import { Briefcase, Lightbulb, Users, Zap, Target, Brain, Handshake, GraduationCap, Award, CalendarDays } from 'lucide-react';
+import { Briefcase, Lightbulb, Users, Zap, Target, Brain, Handshake, GraduationCap, Award, CalendarDays, Building2, CheckSquare } from 'lucide-react';
 
 export default function AboutPage() {
   const educationItems = [
@@ -43,6 +43,34 @@ export default function AboutPage() {
     },
   ];
 
+  const experienceItems = [
+    {
+      title: "Associate Full Stack Software Engineer",
+      company: "Next Solution Lab",
+      duration: "2021 - Present",
+      location: "Dhaka, Bangladesh",
+      responsibilities: [
+        "Honed skills in writing reusable code and comprehensive documentation.",
+        "Developed and collaborated on complex systems using the MERN stack (React.js, Node.js, Express, MongoDB).",
+        "Integrated AI models into applications.",
+        "Deployed applications on AWS EC2.",
+        "Key projects included an office portal for attendance and project management, a multi-vendor e-commerce website, data extraction/annotation tools, and multilingual (English/Japanese) websites.",
+      ],
+    },
+    {
+      title: "Global Marketing Officer (Part-time)",
+      company: "Next Solution Lab",
+      duration: "2021 - Present (Concurrent)",
+      location: "Dhaka, Bangladesh",
+      responsibilities: [
+        "Contributed to lead generation via LinkedIn Sales Navigator and email marketing.",
+        "Performed website audits and conducted keyword research.",
+        "Managed SEO efforts to improve online visibility.",
+        "Utilized Google Analytics to monitor and enhance website performance.",
+      ],
+    },
+  ];
+
   return (
     <SectionWrapper>
       <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-primary animate-fadeInUp">About Me</h1>
@@ -64,8 +92,8 @@ export default function AboutPage() {
           </Card>
         </div>
 
-        <div className="md:col-span-3 space-y-8 animate-fadeInUp animation-delay-400">
-          <Card className="bg-card/80 backdrop-blur-sm shadow-lg">
+        <div className="md:col-span-3 space-y-8">
+          <Card className="bg-card/80 backdrop-blur-sm shadow-lg animate-fadeInUp animation-delay-400">
             <CardHeader>
               <CardTitle className="text-2xl text-primary/90">My Journey</CardTitle>
             </CardHeader>
@@ -83,6 +111,43 @@ export default function AboutPage() {
           </Card>
 
           <Card className="bg-card/80 backdrop-blur-sm shadow-lg animate-fadeInUp" style={{ animationDelay: '0.5s' }}>
+            <CardHeader>
+              <CardTitle className="text-2xl text-primary/90">Professional Experience</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-8">
+              {experienceItems.map((item, index) => (
+                <div 
+                  key={index} 
+                  className="p-5 rounded-lg bg-card/50 border border-border/70 hover:shadow-lg hover:border-primary/40 transition-all duration-300 animate-fadeInUp"
+                  style={{ animationDelay: `${0.1 * (index + 1)}s` }}
+                >
+                  <div className="flex items-start mb-2">
+                    <Briefcase className="h-7 w-7 text-primary mr-4 mt-1 shrink-0" />
+                    <div>
+                      <h3 className="font-semibold text-xl text-primary/90">{item.title}</h3>
+                      <div className="flex items-center text-sm text-muted-foreground mt-1">
+                        <Building2 className="h-4 w-4 mr-1.5" />
+                        <span>{item.company}</span>
+                        {item.location && <span className="mx-1.5 text-xs">&bull;</span>}
+                        {item.location && <span>{item.location}</span>}
+                      </div>
+                      <div className="flex items-center text-sm text-muted-foreground mt-1">
+                        <CalendarDays className="h-4 w-4 mr-1.5" />
+                        <span>{item.duration}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <ul className="mt-3 pl-6 space-y-2 list-disc list-outside text-foreground/80 marker:text-primary/70">
+                    {item.responsibilities.map((responsibility, rIndex) => (
+                      <li key={rIndex} className="text-sm leading-relaxed">{responsibility}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+
+          <Card className="bg-card/80 backdrop-blur-sm shadow-lg animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
             <CardHeader>
               <CardTitle className="text-2xl text-primary/90">Education &amp; Certifications</CardTitle>
             </CardHeader>
@@ -112,7 +177,7 @@ export default function AboutPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-card/80 backdrop-blur-sm shadow-lg animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
+          <Card className="bg-card/80 backdrop-blur-sm shadow-lg animate-fadeInUp" style={{ animationDelay: '0.7s' }}>
             <CardHeader>
               <CardTitle className="text-2xl text-primary/90">Philosophy &amp; Values</CardTitle>
             </CardHeader>
@@ -129,7 +194,7 @@ export default function AboutPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-card/80 backdrop-blur-sm shadow-lg animate-fadeInUp" style={{ animationDelay: '0.7s' }}>
+          <Card className="bg-card/80 backdrop-blur-sm shadow-lg animate-fadeInUp" style={{ animationDelay: '0.8s' }}>
             <CardHeader>
               <CardTitle className="text-2xl text-primary/90">Beyond the Code</CardTitle>
             </CardHeader>
@@ -144,3 +209,4 @@ export default function AboutPage() {
     </SectionWrapper>
   );
 }
+
