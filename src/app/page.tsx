@@ -19,7 +19,9 @@ import {
   JavaScriptLogo, 
   ReactLogo, 
   NodeJsLogo, 
-  ReduxLogo
+  ReduxLogo,
+  TypeScriptLogo, // Added for completeness if needed
+  TailwindCssLogo // Added for completeness if needed
 } from '@/components/shared/SkillLogos';
 
 // Select first 2 projects for preview
@@ -35,7 +37,9 @@ const homePageCustomIconComponents: Record<string, React.ElementType> = {
   Css3Logo,
   NodeJsLogo,
   ReduxLogo,
-  JavaScriptLogo, // Added for completeness if needed by first 3 skills
+  JavaScriptLogo,
+  TypeScriptLogo,
+  TailwindCssLogo,
 };
 
 
@@ -168,19 +172,22 @@ export default function HomePage() {
                     <category.icon className="h-10 w-10 text-primary mb-0 group-hover:scale-110 transition-transform duration-300 shrink-0" />
                     <CardTitle className="text-xl font-semibold text-primary/90 group-hover:text-primary">{category.name}</CardTitle>
                 </CardHeader>
-                <CardContent className="p-6 pt-2 flex-grow flex flex-col justify-end">
-                  <div className="flex flex-wrap gap-3 mt-auto">
+                <CardContent className="p-6 pt-2">
+                  <ul className="space-y-2">
                     {category.skills.slice(0, 3).map((skill: Skill) => {
                        const IconComponent = skill.customIconKey ? homePageCustomIconComponents[skill.customIconKey] : skill.icon;
                        return (
                         IconComponent ? (
-                          <div key={skill.name} title={skill.name} className="p-1 rounded-md hover:bg-primary/10 transition-colors">
-                            <IconComponent className="h-6 w-6 text-foreground/70 group-hover:text-primary/90 transition-colors" />
-                          </div>
+                          <li key={skill.name} className="flex items-center space-x-2 p-1 rounded-md hover:bg-primary/10 transition-colors group/skillitem">
+                            <IconComponent className="h-5 w-5 text-foreground/70 group-hover/skillitem:text-primary transition-colors shrink-0" />
+                            <span className="text-sm text-foreground/80 group-hover/skillitem:text-primary transition-colors truncate" title={skill.name}>
+                              {skill.name}
+                            </span>
+                          </li>
                         ) : null
                        );
                     })}
-                  </div>
+                  </ul>
                 </CardContent>
               </Card>
             ))}
@@ -250,5 +257,7 @@ export default function HomePage() {
     </div>
   );
 }
+
+    
 
     
