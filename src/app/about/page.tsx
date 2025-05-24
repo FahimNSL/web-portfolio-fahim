@@ -5,6 +5,49 @@ import Image from 'next/image';
 import { Briefcase, Lightbulb, Users, Zap, Target, Brain, Handshake, GraduationCap, Award, CalendarDays } from 'lucide-react';
 
 export default function AboutPage() {
+  const educationItems = [
+    {
+      icon: GraduationCap,
+      title: "Master of Science in Information and Communication Engineering",
+      institution: "Bangladesh University of Professionals (BUP)",
+      location: "Dhaka, Bangladesh",
+      duration: "2022 - Present",
+      grade: "CGPA: 3.48 / 4.0",
+    },
+    {
+      icon: GraduationCap,
+      title: "Bachelor of Science in Information and Communication Engineering",
+      institution: "Bangladesh University of Professionals (BUP)",
+      location: "Dhaka, Bangladesh",
+      duration: "2017 - 2021",
+      grade: "CGPA: 2.81 / 4.0",
+    },
+    {
+      icon: CalendarDays,
+      title: "Higher Secondary Certificate (HSC)",
+      institution: "BCIC College",
+      location: "Dhaka, Bangladesh", // Assuming location, was not in CV but standard.
+      duration: "2016",
+      grade: "GPA: 5.0 / 5.0",
+    },
+    {
+      icon: CalendarDays,
+      title: "Secondary School Certificate (SSC)",
+      institution: "BCIC School and College",
+      location: "Dhaka, Bangladesh", // Assuming location
+      duration: "2014",
+      grade: "GPA: 5.0 / 5.0",
+    },
+    {
+      icon: Award,
+      title: "Specialized Training in Digital Marketing",
+      institution: "Creative IT Institute",
+      location: "Dhaka, Bangladesh",
+      duration: null, // Duration not specified, can be omitted or set
+      grade: null, // Grade not applicable
+    },
+  ];
+
   return (
     <SectionWrapper>
       <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-primary animate-fadeInUp">About Me</h1>
@@ -44,61 +87,33 @@ export default function AboutPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-card/80 backdrop-blur-sm shadow-lg">
+          <Card className="bg-card/80 backdrop-blur-sm shadow-lg animate-fadeInUp" style={{ animationDelay: '0.5s' }}>
             <CardHeader>
               <CardTitle className="text-2xl text-primary/90">Education &amp; Certifications</CardTitle>
             </CardHeader>
-            <CardContent className="text-foreground/80 space-y-6 text-lg">
-              <div className="flex items-start space-x-4">
-                <GraduationCap className="h-8 w-8 text-primary mt-1 shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-xl text-primary/90">Master of Science in Information and Communication Engineering</h3>
-                  <p className="text-foreground/80">Bangladesh University of Professionals (BUP)</p>
-                  <p className="text-sm text-muted-foreground">Dhaka, Bangladesh</p>
-                  <p className="text-sm text-muted-foreground">2022 - Present</p>
-                  <p className="text-sm text-muted-foreground">CGPA: 3.48 / 4.0</p>
+            <CardContent className="space-y-6">
+              {educationItems.map((item, index) => (
+                <div 
+                  key={index} 
+                  className="p-4 rounded-lg bg-card/50 border border-border/70 hover:shadow-lg hover:border-primary/40 transition-all duration-300 animate-fadeInUp"
+                  style={{ animationDelay: `${0.1 * (index + 1)}s` }}
+                >
+                  <div className="flex items-center mb-2">
+                    <item.icon className="h-7 w-7 text-primary mr-3 shrink-0" />
+                    <h3 className="font-semibold text-xl text-primary/90">{item.title}</h3>
+                  </div>
+                  <div className="pl-10"> {/* Indent details under the icon/title line */}
+                    <p className="text-md text-foreground/80">{item.institution}</p>
+                    {item.location && <p className="text-sm text-muted-foreground">{item.location}</p>}
+                    {item.duration && <p className="text-sm text-muted-foreground">{item.duration}</p>}
+                    {item.grade && <p className="text-sm text-muted-foreground font-medium">{item.grade}</p>}
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <GraduationCap className="h-8 w-8 text-primary mt-1 shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-xl text-primary/90">Bachelor of Science in Information and Communication Engineering</h3>
-                  <p className="text-foreground/80">Bangladesh University of Professionals (BUP)</p>
-                  <p className="text-sm text-muted-foreground">Dhaka, Bangladesh</p>
-                  <p className="text-sm text-muted-foreground">2017 - 2021</p>
-                  <p className="text-sm text-muted-foreground">CGPA: 2.81 / 4.0</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <CalendarDays className="h-8 w-8 text-primary mt-1 shrink-0" /> {/* Using CalendarDays for HSC/SSC */}
-                <div>
-                  <h3 className="font-semibold text-xl text-primary/90">Higher Secondary Certificate (HSC)</h3>
-                  <p className="text-foreground/80">BCIC College</p>
-                  <p className="text-sm text-muted-foreground">2016</p>
-                  <p className="text-sm text-muted-foreground">GPA: 5.0 / 5.0</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <CalendarDays className="h-8 w-8 text-primary mt-1 shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-xl text-primary/90">Secondary School Certificate (SSC)</h3>
-                  <p className="text-foreground/80">BCIC School and College</p>
-                  <p className="text-sm text-muted-foreground">2014</p>
-                  <p className="text-sm text-muted-foreground">GPA: 5.0 / 5.0</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <Award className="h-8 w-8 text-primary mt-1 shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-xl text-primary/90">Specialized Training in Digital Marketing</h3>
-                  <p className="text-foreground/80">Creative IT Institute</p>
-                  <p className="text-sm text-muted-foreground">Dhaka, Bangladesh</p>
-                </div>
-              </div>
+              ))}
             </CardContent>
           </Card>
 
-          <Card className="bg-card/80 backdrop-blur-sm shadow-lg">
+          <Card className="bg-card/80 backdrop-blur-sm shadow-lg animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
             <CardHeader>
               <CardTitle className="text-2xl text-primary/90">Philosophy &amp; Values</CardTitle>
             </CardHeader>
@@ -115,7 +130,7 @@ export default function AboutPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-card/80 backdrop-blur-sm shadow-lg">
+          <Card className="bg-card/80 backdrop-blur-sm shadow-lg animate-fadeInUp" style={{ animationDelay: '0.7s' }}>
             <CardHeader>
               <CardTitle className="text-2xl text-primary/90">Beyond the Code</CardTitle>
             </CardHeader>
