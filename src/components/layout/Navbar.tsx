@@ -1,3 +1,4 @@
+
 // src/components/layout/Navbar.tsx
 "use client";
 
@@ -92,4 +93,3 @@ export default function Navbar() {
     </header>
   );
 }
-
