@@ -12,7 +12,6 @@ export default function AboutPage() {
       institution: "Bangladesh University of Professionals (BUP)",
       location: "Dhaka, Bangladesh",
       duration: "2022 - Present",
-      grade: "CGPA: 3.48 / 4.0",
     },
     {
       icon: GraduationCap,
@@ -20,7 +19,6 @@ export default function AboutPage() {
       institution: "Bangladesh University of Professionals (BUP)",
       location: "Dhaka, Bangladesh",
       duration: "2017 - 2021",
-      grade: "CGPA: 2.81 / 4.0",
     },
     {
       icon: CalendarDays,
@@ -28,7 +26,6 @@ export default function AboutPage() {
       institution: "BCIC College",
       location: "Dhaka, Bangladesh",
       duration: "2016",
-      grade: "GPA: 5.0 / 5.0",
     },
     {
       icon: CalendarDays,
@@ -36,7 +33,6 @@ export default function AboutPage() {
       institution: "BCIC School and College",
       location: "Dhaka, Bangladesh",
       duration: "2014",
-      grade: "GPA: 5.0 / 5.0",
     },
     {
       icon: Award,
@@ -44,7 +40,6 @@ export default function AboutPage() {
       institution: "Creative IT Institute",
       location: "Dhaka, Bangladesh",
       duration: null, 
-      grade: null, 
     },
   ];
 
@@ -111,7 +106,6 @@ export default function AboutPage() {
                         {item.duration && <span>{item.duration}</span>}
                       </div>
                     )}
-                    {item.grade && <p className="text-sm font-semibold text-primary/80">{item.grade}</p>}
                   </div>
                 </div>
               ))}
