@@ -23,6 +23,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'assets.newatlas.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };

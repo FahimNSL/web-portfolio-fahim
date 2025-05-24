@@ -17,7 +17,7 @@ export default function RewriteCvPage() {
 
       <div className="flex justify-center mb-10"> {/* Removed animation from here */}
         <Image
-          src="https://images.unsplash.com/photo-1611109760431-8937987a577e?q=80&w=200&h=200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://assets.newatlas.com/dims4/default/d4d0e9e/2147483647/strip/true/crop/2127x1418+0+0/resize/2127x1418!/format/webp/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F09%2Fc1%2Ffb38955149cea88bfc54164a8a8d%2Fsmart-home-ai-agent-lifestyle-03.jpeg"
           alt="AI Assistant Robot"
           width={200}
           height={200}
