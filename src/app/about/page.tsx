@@ -45,22 +45,26 @@ export default function AboutPage() {
 
   const experienceItems = [
     {
-      title: "Associate Full Stack Software Engineer",
+      title: "Associate Full Stack Software Engineer (Full Time)",
       company: "Next Solution Lab",
-      duration: "2021 - Present",
+      duration: "2022 Oct - Present",
       location: "Dhaka, Bangladesh",
       responsibilities: [
-        "Honed skills in writing reusable code and comprehensive documentation.",
-        "Developed and collaborated on complex systems using the MERN stack (React.js, Node.js, Express, MongoDB).",
-        "Integrated AI models into applications.",
-        "Deployed applications on AWS EC2.",
-        "Key projects included an office portal for attendance and project management, a multi-vendor e-commerce website, data extraction/annotation tools, and multilingual (English/Japanese) websites.",
+        "Full-Stack Development – Developed scalable applications using React JS (frontend) and Node JS, Express JS, MongoDB (backend).",
+        "AI Integration – Built AI-powered systems and integrated AI models with web applications.",
+        "Cloud Management – Managed applications using AWS Lambda, DynamoDB, EC2, S3 Bucket and CloudFront.",
+        "Office Portal Development –Contributed to building an office portal for attendance, project management, analytics, and employee evaluation.",
+        "E-commerce Development – Created a multi-vendor eCommerce platform with secure authentication and scalable features.",
+        "Data Extraction & Annotation – Developed a project for data extraction and annotation using AI tools.",
+        "Multilingual Website Development – Built websites supporting English and Japanese.",
+        "AI Tool Development – Created multiple AI-based tools, including the VGG annotation tool.",
+        "Code Optimization & Documentation – Wrote reusable, optimized code with proper documentation.",
       ],
     },
     {
       title: "Global Marketing Officer (Part-time)",
       company: "Next Solution Lab",
-      duration: "2021 - Present (Concurrent)",
+      duration: "2024 Jan - Present",
       location: "Dhaka, Bangladesh",
       responsibilities: [
         "Contributed to lead generation via LinkedIn Sales Navigator and email marketing.",
@@ -151,7 +155,7 @@ export default function AboutPage() {
             <CardHeader>
               <CardTitle className="text-2xl text-primary/90">Education &amp; Certifications</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="p-6 pt-0 space-y-6">
               {educationItems.map((item, index) => (
                 <div 
                   key={index} 
@@ -210,3 +214,5 @@ export default function AboutPage() {
   );
 }
 
+
+    
