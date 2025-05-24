@@ -2,7 +2,7 @@
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
-import { Briefcase, Lightbulb, Users, Zap, Target, Brain, Handshake, GraduationCap, Award } from 'lucide-react';
+import { Briefcase, Lightbulb, Users, Zap, Target, Brain, Handshake, GraduationCap, Award, CalendarDays } from 'lucide-react';
 
 export default function AboutPage() {
   return (
@@ -52,9 +52,39 @@ export default function AboutPage() {
               <div className="flex items-start space-x-4">
                 <GraduationCap className="h-8 w-8 text-primary mt-1 shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-xl text-primary/90">Graduate</h3>
+                  <h3 className="font-semibold text-xl text-primary/90">Master of Science in Information and Communication Engineering</h3>
                   <p className="text-foreground/80">Bangladesh University of Professionals (BUP)</p>
                   <p className="text-sm text-muted-foreground">Dhaka, Bangladesh</p>
+                  <p className="text-sm text-muted-foreground">2022 - Present</p>
+                  <p className="text-sm text-muted-foreground">CGPA: 3.48 / 4.0</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <GraduationCap className="h-8 w-8 text-primary mt-1 shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-xl text-primary/90">Bachelor of Science in Information and Communication Engineering</h3>
+                  <p className="text-foreground/80">Bangladesh University of Professionals (BUP)</p>
+                  <p className="text-sm text-muted-foreground">Dhaka, Bangladesh</p>
+                  <p className="text-sm text-muted-foreground">2017 - 2021</p>
+                  <p className="text-sm text-muted-foreground">CGPA: 2.81 / 4.0</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <CalendarDays className="h-8 w-8 text-primary mt-1 shrink-0" /> {/* Using CalendarDays for HSC/SSC */}
+                <div>
+                  <h3 className="font-semibold text-xl text-primary/90">Higher Secondary Certificate (HSC)</h3>
+                  <p className="text-foreground/80">BCIC College</p>
+                  <p className="text-sm text-muted-foreground">2016</p>
+                  <p className="text-sm text-muted-foreground">GPA: 5.0 / 5.0</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <CalendarDays className="h-8 w-8 text-primary mt-1 shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-xl text-primary/90">Secondary School Certificate (SSC)</h3>
+                  <p className="text-foreground/80">BCIC School and College</p>
+                  <p className="text-sm text-muted-foreground">2014</p>
+                  <p className="text-sm text-muted-foreground">GPA: 5.0 / 5.0</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
