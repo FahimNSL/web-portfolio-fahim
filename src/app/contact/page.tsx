@@ -11,9 +11,11 @@ import { useForm, type SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useToast } from "@/hooks/use-toast";
-import { Github, Linkedin, Mail, Phone } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, Loader2 } from 'lucide-react';
 import Link from 'next/link';
+import { submitContactForm, type ContactFormValues as ServerActionContactFormValues } from './actions'; // Import server action
 
+// Keep Zod schema for client-side validation
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Invalid email address." }),
@@ -28,35 +30,34 @@ export default function ContactPage() {
     resolver: zodResolver(contactFormSchema),
   });
 
-  const onSubmit: SubmitHandler<ContactFormValues> = (data) => {
-    const recipientEmail = "ehtesamulhaque32@gmail.com";
-    const subject = `Contact Form Submission from ${data.name}`;
-    const body = `You have a new message from your portfolio contact form:\n
-Name: ${data.name}
-Email: ${data.email} (Please reply to this email address)
-
-Message:
-${data.message}`;
-
-    const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
+  const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
     try {
-      // Attempt to open the mail client
-      window.location.href = mailtoLink;
-      toast({
-        title: "Opening Email Client",
-        description: "Your message is ready to be sent. Please use your email application.",
-        variant: "default",
-      });
+      const result = await submitContactForm(data as ServerActionContactFormValues);
+
+      if (result.success) {
+        toast({
+          title: "Message Sent!",
+          description: result.message,
+          variant: "default",
+        });
+        reset(); // Reset form fields
+      } else {
+        toast({
+          title: "Error",
+          description: result.message || "Failed to send message. Please try again.",
+          variant: "destructive",
+        });
+        // Optionally, you could set form errors here if result.errors is populated
+        // result.errors?.forEach(err => setError(err.field as keyof ContactFormValues, { message: err.message }));
+      }
     } catch (error) {
-      console.error("Failed to open mailto link:", error);
+      console.error("Failed to submit contact form:", error);
       toast({
         title: "Error",
-        description: "Could not automatically open your email client. Please copy the details manually.",
+        description: "An unexpected error occurred. Please try again later.",
         variant: "destructive",
       });
     }
-    reset(); // Reset form fields
   };
 
   return (
@@ -80,6 +81,7 @@ ${data.message}`;
                   {...register("name")} 
                   className="mt-1 bg-input border-border focus:ring-primary"
                   aria-invalid={errors.name ? "true" : "false"}
+                  disabled={isSubmitting}
                 />
                 {errors.name && <p className="text-sm text-destructive mt-1">{errors.name.message}</p>}
               </div>
@@ -91,6 +93,7 @@ ${data.message}`;
                   {...register("email")} 
                   className="mt-1 bg-input border-border focus:ring-primary"
                   aria-invalid={errors.email ? "true" : "false"}
+                  disabled={isSubmitting}
                 />
                 {errors.email && <p className="text-sm text-destructive mt-1">{errors.email.message}</p>}
               </div>
@@ -102,11 +105,19 @@ ${data.message}`;
                   rows={5}
                   className="mt-1 bg-input border-border focus:ring-primary"
                   aria-invalid={errors.message ? "true" : "false"}
+                  disabled={isSubmitting}
                 />
                 {errors.message && <p className="text-sm text-destructive mt-1">{errors.message.message}</p>}
               </div>
               <Button type="submit" className="w-full shadow-lg hover:opacity-90" disabled={isSubmitting}>
-                {isSubmitting ? 'Preparing Message...' : 'Send Message'}
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  'Send Message'
+                )}
               </Button>
             </form>
           </CardContent>
@@ -137,7 +148,7 @@ ${data.message}`;
               <Link href="https://github.com/FahimEhtesham73" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-foreground/70 hover:text-primary transition-colors">
                 <Github className="h-8 w-8" />
               </Link>
-              <Link href="https://www.linkedin.com/in/md-ehtesamul-haque-fahim-7354301a5" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-foreground/70 hover:text-primary transition-colors"> {/* Updated LinkedIn URL */}
+              <Link href="https://www.linkedin.com/in/md-ehtesamul-haque-fahim-7354301a5" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-foreground/70 hover:text-primary transition-colors">
                 <Linkedin className="h-8 w-8" />
               </Link>
             </CardContent>
