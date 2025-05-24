@@ -10,15 +10,15 @@ import TypingText from '@/components/shared/TypingText';
 import GitHubActivityGrid from '@/components/shared/GitHubActivityGrid';
 import ProjectCard from '@/components/shared/ProjectCard';
 import { projectsData } from '@/app/projects/page';
-import { type SkillCategory, skillData, type Skill } from '@/lib/skillsData'; 
+import { type SkillCategory, skillData, type Skill } from '@/lib/skillsData';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
-import { 
-  Html5Logo, 
-  Css3Logo, 
-  JavaScriptLogo, 
-  ReactLogo, 
-  NodeJsLogo, 
+import {
+  Html5Logo,
+  Css3Logo,
+  JavaScriptLogo,
+  ReactLogo,
+  NodeJsLogo,
   ReduxLogo,
   TypeScriptLogo, // Added for completeness if needed
   TailwindCssLogo // Added for completeness if needed
@@ -73,7 +73,7 @@ export default function HomePage() {
             <TypingText
               text="MD. Ehtesamul Haque Fahim"
               typingSpeed={100}
-              initialDelayForTyping={900} 
+              initialDelayForTyping={900}
               className="inline-block"
               cursorClassName="inline-block w-[3px] h-[0.85em] bg-primary animate-blink align-text-bottom ml-1"
             />
@@ -257,7 +257,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-    
-
-    

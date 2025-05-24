@@ -76,9 +76,9 @@ export default function Navbar() {
                 <SheetTitle>Navigation Menu</SheetTitle>
               </SheetHeader>
               <div className="flex flex-col space-y-3">
-                <Link 
-                  href="/" 
-                  className="flex items-center space-x-2 pb-3 mb-3 border-b border-border/40" 
+                <Link
+                  href="/"
+                  className="flex items-center space-x-2 pb-3 mb-3 border-b border-border/40"
                   onClick={() => setIsSheetOpen(false)}
                 >
                   <Feather className="h-5 w-5 text-primary" />

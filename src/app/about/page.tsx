@@ -14,10 +14,10 @@ export default function AboutPage() {
           <Card className="overflow-hidden shadow-xl">
             <CardContent className="p-0">
               <Image 
-                src="https://placehold.co/400x500.png" 
+                src="/Fahim.png" 
                 alt="MD. Ehtesamul Haque Fahim - Professional" 
-                width={400} 
-                height={500}
+                width={900} 
+                height={1000}
                 className="object-cover w-full h-auto"
                 data-ai-hint="professional portrait"
                 priority
