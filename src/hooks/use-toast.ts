@@ -1,3 +1,4 @@
+
 "use client"
 
 // Inspired by react-hot-toast library
@@ -175,14 +176,21 @@ function useToast() {
   const [state, setState] = React.useState<State>(memoryState)
 
   React.useEffect(() => {
-    listeners.push(setState)
-    return () => {
-      const index = listeners.indexOf(setState)
-      if (index > -1) {
-        listeners.splice(index, 1)
-      }
+    const newListener = (currentState: State) => setState(currentState);
+    listeners.push(newListener);
+
+    // Sync with current memoryState in case it changed before this effect ran
+    if (state !== memoryState) {
+      setState(memoryState);
     }
-  }, [state])
+    
+    return () => {
+      const index = listeners.indexOf(newListener);
+      if (index > -1) {
+        listeners.splice(index, 1);
+      }
+    };
+  }, []); // Empty dependency array ensures this runs only once on mount and unmount
 
   return {
     ...state,
