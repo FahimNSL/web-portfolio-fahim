@@ -39,7 +39,7 @@ export default function AboutPage() {
       title: "Specialized Training in Digital Marketing",
       institution: "Creative IT Institute",
       location: "Dhaka, Bangladesh",
-      duration: null, 
+      duration: null,
     },
   ];
 
@@ -47,7 +47,7 @@ export default function AboutPage() {
     {
       title: "Associate Full Stack Software Engineer (Full Time)",
       company: "Next Solution Lab",
-      duration: "2022 Oct - Present",
+      duration: "2023 August - Present",
       location: "Dhaka, Bangladesh",
       responsibilities: [
         "Full-Stack Development – Developed scalable applications using React JS (frontend) and Node JS, Express JS, MongoDB (backend).",
