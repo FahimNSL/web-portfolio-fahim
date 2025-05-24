@@ -1,12 +1,14 @@
+
 // src/app/skills/page.tsx
-"use client"; 
+"use client";
 import React from 'react';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Code, Database, Settings, Cloud, Layers, Terminal, TrendingUp, Users, GitBranch, Cpu, Link2, Palette, Briefcase, CheckCircle, Search, ShieldCheck, Lightbulb, Mail } from 'lucide-react';
+import { Palette } from 'lucide-react'; // Only Palette is needed here from lucide for fallback
 import { cn } from '@/lib/utils';
+import { skillData, type SkillCategory, type Skill } from '@/lib/skillsData'; // Import from new location
 
-// Custom SVG Logo Components
+// Custom SVG Logo Components (remain here as they are presentational)
 const Html5Logo = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className={cn("h-10 w-10", className)}>
     <path fill="currentColor" d="M20.4 113.4l-8.6-97.3L64 4.3l52.2 11.8 8.6 97.3L64 123.7z"/>
@@ -34,7 +36,7 @@ const JavaScriptLogo = ({ className }: { className?: string }) => (
 
 const ReactLogo = ({ className }: { className?: string }) => (
   <svg className={cn("h-10 w-10", className)} viewBox="-11.5 -10.23174 23 20.46348" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="0" cy="0" r="2.05" fill="currentColor"/>
+    <circle cx="0" cy="0" r="2.05" stroke="currentColor"/>
     <g stroke="currentColor" strokeWidth="1">
       <ellipse rx="11" ry="4.2"/>
       <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
@@ -73,124 +75,6 @@ const ReduxLogo = ({ className }: { className?: string }) => (
   </svg>
 );
 
-
-export interface Skill {
-  name: string;
-  icon?: React.ElementType; // For Lucide icons
-  customIconKey?: string; // Key for custom SVG components
-}
-
-export interface SkillCategory {
-  name: string;
-  icon: React.ElementType; // Category icon (Lucide)
-  skills: Skill[];
-}
-
-export const skillData: SkillCategory[] = [
-  {
-    name: 'Frontend Development',
-    icon: Code,
-    skills: [
-      { name: 'React JS', customIconKey: 'ReactLogo' },
-      { name: 'HTML5', customIconKey: 'Html5Logo' },
-      { name: 'CSS3', customIconKey: 'Css3Logo' },
-      { name: 'JavaScript (ES6+)', customIconKey: 'JavaScriptLogo' },
-      { name: 'TypeScript', customIconKey: 'TypeScriptLogo' },
-      { name: 'Bootstrap', icon: Palette }, 
-      { name: 'Material-UI', icon: Palette },
-      { name: 'Tailwind CSS', customIconKey: 'TailwindCssLogo' },
-    ],
-  },
-  {
-    name: 'Backend Development',
-    icon: Cpu,
-    skills: [
-      { name: 'Node.js', customIconKey: 'NodeJsLogo' },
-      { name: 'Express.js', icon: Settings }, 
-    ],
-  },
-  {
-    name: 'State Management',
-    icon: Layers,
-    skills: [
-      { name: 'Redux & Redux Toolkit', customIconKey: 'ReduxLogo' }, 
-      { name: 'Context API', icon: Layers },
-    ],
-  },
-  {
-    name: 'Databases',
-    icon: Database,
-    skills: [
-      { name: 'MongoDB', icon: Database },
-      { name: 'MySQL', icon: Database },
-    ],
-  },
-  {
-    name: 'Version Control & Tools',
-    icon: GitBranch,
-    skills: [
-      { name: 'Git & GitHub', icon: GitBranch },
-      { name: 'Visual Studio Code', icon: Terminal }, 
-    ],
-  },
-  {
-    name: 'APIs & Authentication',
-    icon: Link2,
-    skills: [
-      { name: 'REST APIs', icon: Link2 },
-      { name: 'JSON', icon: Code }, 
-      { name: 'JWT Authentication', icon: ShieldCheck },
-    ],
-  },
-  {
-    name: 'Deployment & Cloud',
-    icon: Cloud,
-    skills: [
-      { name: 'AWS EC2', icon: Cloud },
-      { name: 'AWS Lambda', icon: Cloud },
-      { name: 'AWS S3 Bucket', icon: Cloud },
-      { name: 'AWS DocumentDB', icon: Cloud },
-      { name: 'AWS CloudFront', icon: Cloud },
-      { name: 'Netlify', icon: Cloud },
-      { name: 'Heroku', icon: Cloud },
-      { name: 'cPanel', icon: Settings },
-      { name: 'Vercel', icon: Cloud },
-      { name: 'Cloudinary', icon: Cloud },
-    ],
-  },
-  {
-    name: 'Operating Systems',
-    icon: Terminal,
-    skills: [
-      { name: 'Linux (Ubuntu)', icon: Terminal },
-      { name: 'Windows', icon: Terminal }, 
-    ],
-  },
-  {
-    name: 'Digital Marketing',
-    icon: TrendingUp,
-    skills: [
-      { name: 'Website Audit', icon: Search },
-      { name: 'SEO & Keyword Research', icon: Search },
-      { name: 'Google Analytics', icon: TrendingUp },
-      { name: 'Social Media Marketing', icon: Users },
-      { name: 'Email Marketing', icon: Mail },
-      { name: 'Wordpress', icon: Palette }, 
-    ],
-  },
-  {
-    name: 'Soft Skills',
-    icon: Users,
-    skills: [
-      { name: 'Problem Solving & Logical Thinking', icon: Lightbulb },
-      { name: 'Professional Communication', icon: Briefcase },
-      { name: 'Team Collaboration', icon: Users },
-      { name: 'Adaptability & Facing Challenges', icon: ShieldCheck },
-      { name: 'Multitasking & Punctuality', icon: CheckCircle },
-    ],
-  },
-];
-
 export default function SkillsPage() {
   const customIconComponents: Record<string, React.ElementType> = {
     Html5Logo,
@@ -213,11 +97,11 @@ export default function SkillsPage() {
       </div>
 
       <h1 className="text-4xl md:text-5xl font-bold text-center mb-16 text-primary animate-fadeInUp relative z-10">My Expertise</h1>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
         {skillData.map((category, categoryIndex) => (
-          <Card 
-            key={category.name} 
+          <Card
+            key={category.name}
             className="bg-card/80 backdrop-blur-sm shadow-xl hover:shadow-primary/30 transition-all duration-300 animate-fadeInUp group"
             style={{ animationDelay: `${categoryIndex * 0.1 + 0.2}s` }}
           >
@@ -228,8 +112,8 @@ export default function SkillsPage() {
             <CardContent>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {category.skills.map((skill, skillIndex) => (
-                  <div 
-                    key={skill.name} 
+                  <div
+                    key={skill.name}
                     className="flex flex-col items-center justify-center p-3 rounded-lg bg-card/50 hover:bg-primary/10 transition-all duration-300 transform hover:scale-105 cursor-pointer animate-fadeInUp"
                     style={{ animationDelay: `${(categoryIndex * 0.1) + (skillIndex * 0.05) + 0.3}s` }}
                     title={skill.name}
@@ -252,4 +136,3 @@ export default function SkillsPage() {
     </SectionWrapper>
   );
 }
-

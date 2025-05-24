@@ -1,3 +1,4 @@
+
 // src/app/page.tsx
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
@@ -8,8 +9,7 @@ import TypingText from '@/components/shared/TypingText';
 import GitHubActivityGrid from '@/components/shared/GitHubActivityGrid';
 import ProjectCard from '@/components/shared/ProjectCard';
 import { projectsData } from '@/app/projects/page';
-import type { SkillCategory } from '@/app/skills/page'; // Import SkillCategory type
-import { skillData } from '@/app/skills/page'; // Import skillData
+import { type SkillCategory, skillData } from '@/lib/skillsData'; // Import from new location
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 
@@ -29,13 +29,13 @@ export default function HomePage() {
           <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-secondary/40 rounded-full animate-subtle-float animation-delay-2000"></div>
            <div className="absolute top-1/2 right-1/5 w-16 h-16 bg-primary/20 rounded-full animate-subtle-float animation-delay-1000"></div>
         </div>
-        
+
         <div className="relative z-10">
-          <Image 
-            src="/FahimPro.png" 
-            alt="MD. Ehtesamul Haque Fahim" 
-            width={300} 
-            height={300} 
+          <Image
+            src="/FahimPro.png"
+            alt="MD. Ehtesamul Haque Fahim"
+            width={300}
+            height={300}
             className="rounded-full mx-auto mb-6 border-4 border-primary/50 shadow-lg animate-fadeInUp"
             data-ai-hint="developer portrait"
             priority
@@ -43,13 +43,13 @@ export default function HomePage() {
           <p className="text-2xl md:text-3xl text-neon-glow mb-1 animate-fadeInUp animation-delay-200">
             Hello, I&apos;m
           </p>
-          <h1 
+          <h1
             className="text-5xl md:text-7xl font-bold mb-6 text-neon-glow animate-fadeInUp animation-delay-300"
           >
-            <TypingText 
-              text="MD. Ehtesamul Haque Fahim" 
-              typingSpeed={100} 
-              initialDelayForTyping={900} 
+            <TypingText
+              text="MD. Ehtesamul Haque Fahim"
+              typingSpeed={100}
+              initialDelayForTyping={900} // Starts after <h1> animation
               className="inline-block"
               cursorClassName="inline-block w-[3px] h-[0.85em] bg-primary animate-blink align-text-bottom ml-1"
             />
@@ -58,29 +58,29 @@ export default function HomePage() {
             A dedicated <span className="text-primary font-semibold">Full Stack Software Engineer (MERN)</span> with a strong foundation in digital marketing. I am passionate about integrating web development skills with marketing strategies to deliver user-centric, scalable solutions.
           </p>
           <div className="space-y-4 sm:space-y-0 sm:space-x-4">
-            <Button 
-              asChild 
-              size="lg" 
+            <Button
+              asChild
+              size="lg"
               className="shadow-lg hover:shadow-primary/40 transform hover:scale-105 transition-all duration-300 animate-fadeInUp animation-delay-700 w-full sm:w-auto"
             >
               <Link href="/projects">
                 View My Work <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button 
-              asChild 
-              variant="outline" 
-              size="lg" 
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
               className="shadow-lg hover:shadow-primary/40 transform hover:scale-105 transition-all duration-300 animate-fadeInUp animation-delay-800 w-full sm:w-auto"
             >
               <Link href="/contact">
                 Get In Touch <Mail className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button 
-              asChild 
-              variant="outline" 
-              size="lg" 
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
               className="shadow-lg hover:shadow-primary/40 transform hover:scale-105 transition-all duration-300 animate-fadeInUp animation-delay-900 w-full sm:w-auto"
             >
               <Link href="/resume.pdf" target="_blank" download="MD_Ehtesamul_Haque_Fahim_Resume.pdf">
@@ -108,11 +108,11 @@ export default function HomePage() {
             </Button>
           </div>
           <div className="animate-fadeInUp" style={{animationDelay: '0.4s'}}>
-            <Image 
-              src="https://placehold.co/600x400.png" 
-              alt="Abstract representation of coding" 
-              width={600} 
-              height={400} 
+            <Image
+              src="https://placehold.co/600x400.png"
+              alt="Abstract representation of coding"
+              width={600}
+              height={400}
               className="rounded-lg shadow-xl"
               data-ai-hint="web development"
             />
@@ -127,8 +127,8 @@ export default function HomePage() {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           {keySkillCategories.map((category, index) => (
-            <Card 
-              key={category.name} 
+            <Card
+              key={category.name}
               className="bg-card/70 backdrop-blur-sm shadow-lg hover:shadow-primary/20 transition-all duration-300 animate-fadeInUp group"
               style={{ animationDelay: `${0.3 + index * 0.1}s` }}
             >
@@ -155,9 +155,9 @@ export default function HomePage() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
           {featuredProjects.map((project, index) => (
-            <ProjectCard 
-              key={project.slug} 
-              project={project} 
+            <ProjectCard
+              key={project.slug}
+              project={project}
               animationDelay={`${0.3 + index * 0.15}s`}
             />
           ))}
