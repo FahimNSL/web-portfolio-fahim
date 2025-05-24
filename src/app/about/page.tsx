@@ -26,7 +26,7 @@ export default function AboutPage() {
       icon: CalendarDays,
       title: "Higher Secondary Certificate (HSC)",
       institution: "BCIC College",
-      location: "Dhaka, Bangladesh", // Assuming location, was not in CV but standard.
+      location: "Dhaka, Bangladesh",
       duration: "2016",
       grade: "GPA: 5.0 / 5.0",
     },
@@ -34,7 +34,7 @@ export default function AboutPage() {
       icon: CalendarDays,
       title: "Secondary School Certificate (SSC)",
       institution: "BCIC School and College",
-      location: "Dhaka, Bangladesh", // Assuming location
+      location: "Dhaka, Bangladesh",
       duration: "2014",
       grade: "GPA: 5.0 / 5.0",
     },
@@ -43,8 +43,8 @@ export default function AboutPage() {
       title: "Specialized Training in Digital Marketing",
       institution: "Creative IT Institute",
       location: "Dhaka, Bangladesh",
-      duration: null, // Duration not specified, can be omitted or set
-      grade: null, // Grade not applicable
+      duration: null, 
+      grade: null, 
     },
   ];
 
@@ -102,11 +102,16 @@ export default function AboutPage() {
                     <item.icon className="h-7 w-7 text-primary mr-3 shrink-0" />
                     <h3 className="font-semibold text-xl text-primary/90">{item.title}</h3>
                   </div>
-                  <div className="pl-10"> {/* Indent details under the icon/title line */}
-                    <p className="text-md text-foreground/80">{item.institution}</p>
-                    {item.location && <p className="text-sm text-muted-foreground">{item.location}</p>}
-                    {item.duration && <p className="text-sm text-muted-foreground">{item.duration}</p>}
-                    {item.grade && <p className="text-sm text-muted-foreground font-medium">{item.grade}</p>}
+                  <div className="pl-10 mt-1 space-y-1.5">
+                    <p className="text-md font-semibold text-foreground/90">{item.institution}</p>
+                    {(item.location || item.duration) && (
+                      <div className="flex items-center text-sm text-muted-foreground">
+                        {item.location && <span>{item.location}</span>}
+                        {item.location && item.duration && <span className="mx-1.5 text-xs">&bull;</span>}
+                        {item.duration && <span>{item.duration}</span>}
+                      </div>
+                    )}
+                    {item.grade && <p className="text-sm font-semibold text-primary/80">{item.grade}</p>}
                   </div>
                 </div>
               ))}
