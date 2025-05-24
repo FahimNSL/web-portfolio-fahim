@@ -20,8 +20,8 @@ import {
   ReactLogo,
   NodeJsLogo,
   ReduxLogo,
-  TypeScriptLogo, // Added for completeness if needed
-  TailwindCssLogo // Added for completeness if needed
+  TypeScriptLogo, 
+  TailwindCssLogo 
 } from '@/components/shared/SkillLogos';
 
 // Select first 2 projects for preview
@@ -78,7 +78,7 @@ export default function HomePage() {
               cursorClassName="inline-block w-[3px] h-[0.85em] bg-primary animate-blink align-text-bottom ml-1"
             />
           </h1>
-          <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto animate-fadeInUp animation-delay-500">
+          <p className="text-xl md:text-2xl text-neon-glow mb-8 max-w-3xl mx-auto animate-fadeInUp animation-delay-500">
             Full Stack Software Developer
           </p>
           <div className="space-y-4 sm:space-y-0 sm:space-x-4">
@@ -257,3 +257,4 @@ export default function HomePage() {
     </div>
   );
 }
+
