@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils';
 const Html5Logo = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className={cn("h-10 w-10", className)}>
     <path fill="currentColor" d="M20.4 113.4l-8.6-97.3L64 4.3l52.2 11.8 8.6 97.3L64 123.7z"/>
-    <path fill="currentColor" d="M64 15.8l42.3 9.6-7.2 81.4-35.1 9.7V15.8z" style={{ opacity: 0.9 }}/> {/* Slightly differentiate if needed or remove style */}
+    <path fill="currentColor" d="M64 15.8l42.3 9.6-7.2 81.4-35.1 9.7V15.8z" style={{ opacity: 0.9 }}/>
     <path fill="#EBEBEB" d="M64 44.4V63h32.6l-3 33.3-29.6 8.2V86.1h18.7l1.8-20.9H64zm0 51.1l.3.1h-.6L64 95.5z"/>
     <path fill="#FFF" d="M64 75.8v18.4l29.6-8.2 2.8-31H64zM64 44.4v18.6H31.4l-1.8 20.9H64v18.4l-29.6-8.2-2.8-33.3h32z"/>
   </svg>
@@ -74,38 +74,38 @@ const ReduxLogo = ({ className }: { className?: string }) => (
 );
 
 
-interface Skill {
+export interface Skill {
   name: string;
-  icon?: React.ElementType; // Lucide icon
-  customIcon?: React.ReactNode;
+  icon?: React.ElementType; // For Lucide icons
+  customIconKey?: string; // Key for custom SVG components
 }
 
-interface SkillCategory {
+export interface SkillCategory {
   name: string;
-  icon: React.ElementType;
+  icon: React.ElementType; // Category icon (Lucide)
   skills: Skill[];
 }
 
-const skillData: SkillCategory[] = [
+export const skillData: SkillCategory[] = [
   {
     name: 'Frontend Development',
     icon: Code,
     skills: [
-      { name: 'React JS', customIcon: <ReactLogo /> },
-      { name: 'HTML5', customIcon: <Html5Logo /> },
-      { name: 'CSS3', customIcon: <Css3Logo /> },
-      { name: 'JavaScript (ES6+)', customIcon: <JavaScriptLogo /> },
-      { name: 'TypeScript', customIcon: <TypeScriptLogo /> },
+      { name: 'React JS', customIconKey: 'ReactLogo' },
+      { name: 'HTML5', customIconKey: 'Html5Logo' },
+      { name: 'CSS3', customIconKey: 'Css3Logo' },
+      { name: 'JavaScript (ES6+)', customIconKey: 'JavaScriptLogo' },
+      { name: 'TypeScript', customIconKey: 'TypeScriptLogo' },
       { name: 'Bootstrap', icon: Palette }, 
       { name: 'Material-UI', icon: Palette },
-      { name: 'Tailwind CSS', customIcon: <TailwindCssLogo /> },
+      { name: 'Tailwind CSS', customIconKey: 'TailwindCssLogo' },
     ],
   },
   {
     name: 'Backend Development',
     icon: Cpu,
     skills: [
-      { name: 'Node.js', customIcon: <NodeJsLogo /> },
+      { name: 'Node.js', customIconKey: 'NodeJsLogo' },
       { name: 'Express.js', icon: Settings }, 
     ],
   },
@@ -113,7 +113,7 @@ const skillData: SkillCategory[] = [
     name: 'State Management',
     icon: Layers,
     skills: [
-      { name: 'Redux & Redux Toolkit', customIcon: <ReduxLogo /> }, 
+      { name: 'Redux & Redux Toolkit', customIconKey: 'ReduxLogo' }, 
       { name: 'Context API', icon: Layers },
     ],
   },
@@ -192,6 +192,17 @@ const skillData: SkillCategory[] = [
 ];
 
 export default function SkillsPage() {
+  const customIconComponents: Record<string, React.ElementType> = {
+    Html5Logo,
+    Css3Logo,
+    JavaScriptLogo,
+    ReactLogo,
+    NodeJsLogo,
+    TypeScriptLogo,
+    TailwindCssLogo,
+    ReduxLogo,
+  };
+
   return (
     <SectionWrapper className="relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none opacity-5 -z-10">
@@ -223,10 +234,10 @@ export default function SkillsPage() {
                     style={{ animationDelay: `${(categoryIndex * 0.1) + (skillIndex * 0.05) + 0.3}s` }}
                     title={skill.name}
                   >
-                    {skill.customIcon ? (
-                      React.cloneElement(skill.customIcon as React.ReactElement, { className: 'h-10 w-10 mb-2 text-primary/90 group-hover:text-primary transition-colors' })
+                    {skill.customIconKey && customIconComponents[skill.customIconKey] ? (
+                      React.createElement(customIconComponents[skill.customIconKey], { className: 'h-10 w-10 mb-2 text-primary/90 group-hover:text-primary transition-colors' })
                     ) : skill.icon ? (
-                      <skill.icon className="h-10 w-10 mb-2 text-primary/90 group-hover:text-primary transition-colors" />
+                      React.createElement(skill.icon, { className: 'h-10 w-10 mb-2 text-primary/90 group-hover:text-primary transition-colors' })
                     ) : (
                       <Palette className="h-10 w-10 mb-2 text-primary/90 group-hover:text-primary transition-colors" /> // Fallback icon
                     )}
@@ -241,3 +252,4 @@ export default function SkillsPage() {
     </SectionWrapper>
   );
 }
+

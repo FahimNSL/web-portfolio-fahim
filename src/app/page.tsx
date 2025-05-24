@@ -3,9 +3,21 @@ import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Download, Mail, ExternalLink } from 'lucide-react'; // Added Download and Mail icons
+import { ArrowRight, Download, Mail, ExternalLink, Briefcase, Lightbulb, LayoutGrid } from 'lucide-react';
 import TypingText from '@/components/shared/TypingText';
 import GitHubActivityGrid from '@/components/shared/GitHubActivityGrid';
+import ProjectCard from '@/components/shared/ProjectCard';
+import { projectsData } from '@/app/projects/page';
+import type { SkillCategory } from '@/app/skills/page'; // Import SkillCategory type
+import { skillData } from '@/app/skills/page'; // Import skillData
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
+
+// Select first 2 projects for preview
+const featuredProjects = projectsData.slice(0, 2);
+
+// Select first 4 skill categories for preview
+const keySkillCategories = skillData.slice(0, 4);
 
 export default function HomePage() {
   return (
@@ -37,7 +49,7 @@ export default function HomePage() {
             <TypingText 
               text="MD. Ehtesamul Haque Fahim" 
               typingSpeed={100} 
-              initialDelayForTyping={900} // Adjusted: 300ms (h1 delay) + 600ms (h1 animation duration)
+              initialDelayForTyping={900} 
               className="inline-block"
               cursorClassName="inline-block w-[3px] h-[0.85em] bg-primary animate-blink align-text-bottom ml-1"
             />
@@ -71,7 +83,6 @@ export default function HomePage() {
               size="lg" 
               className="shadow-lg hover:shadow-primary/40 transform hover:scale-105 transition-all duration-300 animate-fadeInUp animation-delay-900 w-full sm:w-auto"
             >
-              {/* Make sure to add your resume to the /public folder as resume.pdf */}
               <Link href="/resume.pdf" target="_blank" download="MD_Ehtesamul_Haque_Fahim_Resume.pdf">
                 Download Resume <Download className="ml-2 h-5 w-5" />
               </Link>
@@ -82,7 +93,7 @@ export default function HomePage() {
 
       <SectionWrapper id="quick-intro" className="w-full animate-fadeInUp" style={{animationDelay: '0.8s'}}>
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="animate-fadeInUp" style={{animationDelay: '0.2s'}}> {/* Relative to parent SectionWrapper */}
+          <div className="animate-fadeInUp" style={{animationDelay: '0.2s'}}>
             <h2 className="text-3xl font-bold mb-4 text-primary">A Glimpse About Me</h2>
             <p className="text-lg text-foreground/80 mb-4">
               I thrive on building user-centric, scalable web applications using the MERN stack. With experience in developing complex systems, including AI model integration and multi-vendor e-commerce platforms, I aim to leverage my expertise to contribute to impactful projects and help businesses grow digitally.
@@ -96,7 +107,7 @@ export default function HomePage() {
               </Link>
             </Button>
           </div>
-          <div className="animate-fadeInUp" style={{animationDelay: '0.4s'}}> {/* Relative to parent SectionWrapper */}
+          <div className="animate-fadeInUp" style={{animationDelay: '0.4s'}}>
             <Image 
               src="https://placehold.co/600x400.png" 
               alt="Abstract representation of coding" 
@@ -109,7 +120,58 @@ export default function HomePage() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper id="github-activity" className="w-full animate-fadeInUp" style={{animationDelay: '1.2s'}}>
+      {/* Key Skills Preview Section */}
+      <SectionWrapper id="skills-preview" className="w-full animate-fadeInUp" style={{ animationDelay: '1.0s' }}>
+        <h2 className="text-3xl font-bold mb-12 text-center text-primary animate-fadeInUp" style={{animationDelay: '0.2s'}}>
+          Core Expertise
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+          {keySkillCategories.map((category, index) => (
+            <Card 
+              key={category.name} 
+              className="bg-card/70 backdrop-blur-sm shadow-lg hover:shadow-primary/20 transition-all duration-300 animate-fadeInUp group"
+              style={{ animationDelay: `${0.3 + index * 0.1}s` }}
+            >
+              <CardContent className="p-6 flex flex-col items-center text-center">
+                <category.icon className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-xl font-semibold text-primary/90 mb-1 group-hover:text-primary">{category.name}</h3>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        <div className="text-center animate-fadeInUp" style={{animationDelay: '0.7s'}}>
+          <Button asChild size="lg" variant="outline" className="shadow-lg hover:shadow-primary/40 transform hover:scale-105 transition-all duration-300">
+            <Link href="/skills">
+              Explore All Skills <Lightbulb className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+        </div>
+      </SectionWrapper>
+
+      {/* Featured Projects Preview Section */}
+      <SectionWrapper id="projects-preview" className="w-full animate-fadeInUp" style={{ animationDelay: '1.2s' }}>
+        <h2 className="text-3xl font-bold mb-12 text-center text-primary animate-fadeInUp" style={{animationDelay: '0.2s'}}>
+          Featured Projects
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          {featuredProjects.map((project, index) => (
+            <ProjectCard 
+              key={project.slug} 
+              project={project} 
+              animationDelay={`${0.3 + index * 0.15}s`}
+            />
+          ))}
+        </div>
+        <div className="text-center animate-fadeInUp" style={{animationDelay: '0.6s'}}>
+          <Button asChild size="lg" className="shadow-lg hover:shadow-primary/40 transform hover:scale-105 transition-all duration-300">
+            <Link href="/projects">
+              See All Projects <LayoutGrid className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper id="github-activity" className="w-full animate-fadeInUp" style={{animationDelay: '1.4s'}}>
         <h2 className="text-3xl font-bold mb-8 text-center text-primary animate-fadeInUp" style={{animationDelay: '0.2s'}}>
           My GitHub Journey
         </h2>
