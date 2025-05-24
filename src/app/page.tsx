@@ -109,12 +109,12 @@ export default function HomePage() {
           </div>
           <div className="animate-fadeInUp" style={{animationDelay: '0.4s'}}>
             <Image
-              src="https://placehold.co/600x400.png"
-              alt="Abstract representation of coding"
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c7da?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Team collaborating in a modern tech workspace"
               width={600}
               height={400}
-              className="rounded-lg shadow-xl"
-              data-ai-hint="web development"
+              className="rounded-lg shadow-xl object-cover"
+              data-ai-hint="team collaboration"
             />
           </div>
         </div>
