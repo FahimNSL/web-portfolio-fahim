@@ -1,23 +1,43 @@
 
 // src/app/page.tsx
+import React from 'react';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Download, Mail, ExternalLink, Briefcase, Lightbulb, LayoutGrid } from 'lucide-react';
+import { ArrowRight, Download, Mail, ExternalLink, Briefcase, Lightbulb, LayoutGrid, Settings, Database as DatabaseIcon, Layers as LayersIcon } from 'lucide-react'; // Renamed Database and Layers to avoid conflict
 import TypingText from '@/components/shared/TypingText';
 import GitHubActivityGrid from '@/components/shared/GitHubActivityGrid';
 import ProjectCard from '@/components/shared/ProjectCard';
 import { projectsData } from '@/app/projects/page';
-import { type SkillCategory, skillData } from '@/lib/skillsData'; 
+import { type SkillCategory, skillData, type Skill } from '@/lib/skillsData'; 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
+import { 
+  Html5Logo, 
+  Css3Logo, 
+  JavaScriptLogo, 
+  ReactLogo, 
+  NodeJsLogo, 
+  ReduxLogo
+} from '@/components/shared/SkillLogos';
 
 // Select first 2 projects for preview
 const featuredProjects = projectsData.slice(0, 2);
 
 // Select first 4 skill categories for preview
 const keySkillCategories = skillData.slice(0, 4);
+
+// Helper map for custom icons on the homepage preview
+const homePageCustomIconComponents: Record<string, React.ElementType> = {
+  ReactLogo,
+  Html5Logo,
+  Css3Logo,
+  NodeJsLogo,
+  ReduxLogo,
+  JavaScriptLogo, // Added for completeness if needed by first 3 skills
+};
+
 
 export default function HomePage() {
   return (
@@ -116,7 +136,7 @@ export default function HomePage() {
           </Card>
           <div className="animate-fadeInUp group relative overflow-hidden rounded-lg" style={{animationDelay: '0.4s'}}>
             <Image
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c7da?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c7da?q=80&w=600&h=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Team collaborating in a modern tech workspace"
               width={600}
               height={400}
@@ -141,12 +161,26 @@ export default function HomePage() {
             {keySkillCategories.map((category, index) => (
               <Card
                 key={category.name}
-                className="bg-card/70 backdrop-blur-sm shadow-lg hover:shadow-primary/20 transition-all duration-300 animate-fadeInUp group border border-transparent hover:border-primary/40"
+                className="bg-card/70 backdrop-blur-sm shadow-lg hover:shadow-primary/20 transition-all duration-300 animate-fadeInUp group border border-transparent hover:border-primary/40 flex flex-col"
                 style={{ animationDelay: `${0.3 + index * 0.1}s` }}
               >
-                <CardContent className="p-6 flex flex-col items-center text-center">
-                  <category.icon className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" />
-                  <h3 className="text-xl font-semibold text-primary/90 mb-1 group-hover:text-primary">{category.name}</h3>
+                <CardHeader className="flex flex-row items-center space-x-3 pb-3 pt-6 px-6">
+                    <category.icon className="h-10 w-10 text-primary mb-0 group-hover:scale-110 transition-transform duration-300 shrink-0" />
+                    <CardTitle className="text-xl font-semibold text-primary/90 group-hover:text-primary">{category.name}</CardTitle>
+                </CardHeader>
+                <CardContent className="p-6 pt-2 flex-grow flex flex-col justify-end">
+                  <div className="flex flex-wrap gap-3 mt-auto">
+                    {category.skills.slice(0, 3).map((skill: Skill) => {
+                       const IconComponent = skill.customIconKey ? homePageCustomIconComponents[skill.customIconKey] : skill.icon;
+                       return (
+                        IconComponent ? (
+                          <div key={skill.name} title={skill.name} className="p-1 rounded-md hover:bg-primary/10 transition-colors">
+                            <IconComponent className="h-6 w-6 text-foreground/70 group-hover:text-primary/90 transition-colors" />
+                          </div>
+                        ) : null
+                       );
+                    })}
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -216,3 +250,5 @@ export default function HomePage() {
     </div>
   );
 }
+
+    
