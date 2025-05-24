@@ -17,12 +17,12 @@ export default function RewriteCvPage() {
 
       <div className="flex justify-center mb-10 animate-fadeInUp animation-delay-100">
         <Image
-          src="https://placehold.co/200x200.png"
+          src="https://images.unsplash.com/photo-1611109760431-8937987a577e?q=80&w=200&h=200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="AI Assistant Robot"
           width={200}
           height={200}
-          className="animate-subtle-float"
-          data-ai-hint="friendly robot illustration"
+          className="animate-subtle-float rounded-md shadow-lg"
+          data-ai-hint="ai robot"
         />
       </div>
       
