@@ -3,9 +3,9 @@ import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, DownloadCloud, ExternalLink } from 'lucide-react';
+import { ArrowRight, Download, Mail, ExternalLink } from 'lucide-react'; // Added Download and Mail icons
 import TypingText from '@/components/shared/TypingText';
-import GitHubActivityGrid from '@/components/shared/GitHubActivityGrid'; // Import the new component
+import GitHubActivityGrid from '@/components/shared/GitHubActivityGrid';
 
 export default function HomePage() {
   return (
@@ -32,12 +32,12 @@ export default function HomePage() {
             Hello, I&apos;m
           </p>
           <h1 
-            className="text-5xl md:text-7xl font-bold mb-4 text-neon-glow animate-fadeInUp animation-delay-300"
+            className="text-5xl md:text-7xl font-bold mb-6 text-neon-glow animate-fadeInUp animation-delay-300"
           >
             <TypingText 
               text="MD. Ehtesamul Haque Fahim" 
               typingSpeed={100} 
-              initialDelayForTyping={200} // Starts after h1 fade in (0.3s delay + 0.6s duration)
+              initialDelayForTyping={900} // Adjusted: 300ms (h1 delay) + 600ms (h1 animation duration)
               className="inline-block"
               cursorClassName="inline-block w-[3px] h-[0.85em] bg-primary animate-blink align-text-bottom ml-1"
             />
@@ -45,15 +45,35 @@ export default function HomePage() {
           <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto animate-fadeInUp animation-delay-500">
             A dedicated <span className="text-primary font-semibold">Full Stack Software Engineer (MERN)</span> with a strong foundation in digital marketing. I am passionate about integrating web development skills with marketing strategies to deliver user-centric, scalable solutions.
           </p>
-          <div className="space-x-4 animate-fadeInUp animation-delay-700">
-            <Button asChild size="lg" className="shadow-lg hover:shadow-primary/40 transform hover:scale-105 transition-all duration-300">
+          <div className="space-y-4 sm:space-y-0 sm:space-x-4">
+            <Button 
+              asChild 
+              size="lg" 
+              className="shadow-lg hover:shadow-primary/40 transform hover:scale-105 transition-all duration-300 animate-fadeInUp animation-delay-700 w-full sm:w-auto"
+            >
               <Link href="/projects">
                 View My Work <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="shadow-lg hover:shadow-primary/40 transform hover:scale-105 transition-all duration-300">
+            <Button 
+              asChild 
+              variant="outline" 
+              size="lg" 
+              className="shadow-lg hover:shadow-primary/40 transform hover:scale-105 transition-all duration-300 animate-fadeInUp animation-delay-800 w-full sm:w-auto"
+            >
               <Link href="/contact">
-                Get In Touch <DownloadCloud className="ml-2 h-5 w-5" /> {/* Changed icon for relevance */}
+                Get In Touch <Mail className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+            <Button 
+              asChild 
+              variant="outline" 
+              size="lg" 
+              className="shadow-lg hover:shadow-primary/40 transform hover:scale-105 transition-all duration-300 animate-fadeInUp animation-delay-900 w-full sm:w-auto"
+            >
+              {/* Make sure to add your resume to the /public folder as resume.pdf */}
+              <Link href="/resume.pdf" target="_blank" download="MD_Ehtesamul_Haque_Fahim_Resume.pdf">
+                Download Resume <Download className="ml-2 h-5 w-5" />
               </Link>
             </Button>
           </div>
