@@ -28,16 +28,35 @@ export default function ContactPage() {
     resolver: zodResolver(contactFormSchema),
   });
 
-  const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
-    // In a real app, you'd send this data to a backend or email service.
-    // For now, we'll simulate a successful submission.
-    await new Promise(resolve => setTimeout(resolve, 1500)); 
-    console.log(data);
-    toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
-    });
-    reset();
+  const onSubmit: SubmitHandler<ContactFormValues> = (data) => {
+    const recipientEmail = "ehtesamulhaque32@gmail.com";
+    const subject = `Contact Form Submission from ${data.name}`;
+    const body = `You have a new message from your portfolio contact form:\n
+Name: ${data.name}
+Email: ${data.email} (Please reply to this email address)
+
+Message:
+${data.message}`;
+
+    const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    try {
+      // Attempt to open the mail client
+      window.location.href = mailtoLink;
+      toast({
+        title: "Opening Email Client",
+        description: "Your message is ready to be sent. Please use your email application.",
+        variant: "default",
+      });
+    } catch (error) {
+      console.error("Failed to open mailto link:", error);
+      toast({
+        title: "Error",
+        description: "Could not automatically open your email client. Please copy the details manually.",
+        variant: "destructive",
+      });
+    }
+    reset(); // Reset form fields
   };
 
   return (
@@ -87,7 +106,7 @@ export default function ContactPage() {
                 {errors.message && <p className="text-sm text-destructive mt-1">{errors.message.message}</p>}
               </div>
               <Button type="submit" className="w-full shadow-lg hover:opacity-90" disabled={isSubmitting}>
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? 'Preparing Message...' : 'Send Message'}
               </Button>
             </form>
           </CardContent>
@@ -118,7 +137,7 @@ export default function ContactPage() {
               <Link href="https://github.com/FahimEhtesham73" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-foreground/70 hover:text-primary transition-colors">
                 <Github className="h-8 w-8" />
               </Link>
-              <Link href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-foreground/70 hover:text-primary transition-colors">
+              <Link href="https://www.linkedin.com/in/md-ehtesamul-haque-fahim-7354301a5" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-foreground/70 hover:text-primary transition-colors"> {/* Updated LinkedIn URL */}
                 <Linkedin className="h-8 w-8" />
               </Link>
             </CardContent>
