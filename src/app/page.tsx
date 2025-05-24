@@ -73,13 +73,13 @@ export default function HomePage() {
             <TypingText
               text="MD. Ehtesamul Haque Fahim"
               typingSpeed={100}
-              initialDelayForTyping={900}
+              initialDelayForTyping={900} // Adjusted from 600ms to account for h1's 300ms animation delay
               className="inline-block"
               cursorClassName="inline-block w-[3px] h-[0.85em] bg-primary animate-blink align-text-bottom ml-1"
             />
           </h1>
           <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto animate-fadeInUp animation-delay-500">
-            A dedicated <span className="text-primary font-semibold">Full Stack Software Engineer (MERN)</span> with a strong foundation in digital marketing. I am passionate about integrating web development skills with marketing strategies to deliver user-centric, scalable solutions.
+            Full Stack Software Developer
           </p>
           <div className="space-y-4 sm:space-y-0 sm:space-x-4">
             <Button
