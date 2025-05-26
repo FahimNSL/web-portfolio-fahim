@@ -2,9 +2,79 @@
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
-import { Briefcase, Lightbulb, Users, Zap, Target, Brain, Handshake, GraduationCap, Award } from 'lucide-react';
+import { Briefcase, Lightbulb, Users, Zap, Target, Brain, Handshake, GraduationCap, Award, CalendarDays, Building2, CheckSquare } from 'lucide-react';
 
 export default function AboutPage() {
+  const educationItems = [
+    {
+      icon: GraduationCap,
+      title: "Master of Science in Information and Communication Engineering",
+      institution: "Bangladesh University of Professionals (BUP)",
+      location: "Dhaka, Bangladesh",
+      duration: "2022 - Present",
+    },
+    {
+      icon: GraduationCap,
+      title: "Bachelor of Science in Information and Communication Engineering",
+      institution: "Bangladesh University of Professionals (BUP)",
+      location: "Dhaka, Bangladesh",
+      duration: "2017 - 2021",
+    },
+    {
+      icon: CalendarDays,
+      title: "Higher Secondary Certificate (HSC)",
+      institution: "BCIC College",
+      location: "Dhaka, Bangladesh",
+      duration: "2016",
+    },
+    {
+      icon: CalendarDays,
+      title: "Secondary School Certificate (SSC)",
+      institution: "BCIC School and College",
+      location: "Dhaka, Bangladesh",
+      duration: "2014",
+    },
+    {
+      icon: Award,
+      title: "Specialized Training in Digital Marketing",
+      institution: "Creative IT Institute",
+      location: "Dhaka, Bangladesh",
+      duration: null,
+    },
+  ];
+
+  const experienceItems = [
+    {
+      title: "Associate Full Stack Software Engineer (Full Time)",
+      company: "Next Solution Lab",
+      duration: "2023 August - Present",
+      location: "Dhaka, Bangladesh",
+      responsibilities: [
+        "Full-Stack Development – Developed scalable applications using React JS (frontend) and Node JS, Express JS, MongoDB (backend).",
+        "AI Integration – Built AI-powered systems and integrated AI models with web applications.",
+        "Cloud Management – Managed applications using AWS Lambda, DynamoDB, EC2, S3 Bucket and CloudFront.",
+        "Office Portal Development –Contributed to building an office portal for attendance, project management, analytics, and employee evaluation.",
+        "E-commerce Development – Created a multi-vendor eCommerce platform with secure authentication and scalable features.",
+        "Data Extraction & Annotation – Developed a project for data extraction and annotation using AI tools.",
+        "Multilingual Website Development – Built websites supporting English and Japanese.",
+        "AI Tool Development – Created multiple AI-based tools, including the VGG annotation tool.",
+        "Code Optimization & Documentation – Wrote reusable, optimized code with proper documentation.",
+      ],
+    },
+    {
+      title: "Global Marketing Officer (Part-time)",
+      company: "Next Solution Lab",
+      duration: "2024 Jan - Present",
+      location: "Dhaka, Bangladesh",
+      responsibilities: [
+        "Contributed to lead generation via LinkedIn Sales Navigator and email marketing.",
+        "Performed website audits and conducted keyword research.",
+        "Managed SEO efforts to improve online visibility.",
+        "Utilized Google Analytics to monitor and enhance website performance.",
+      ],
+    },
+  ];
+
   return (
     <SectionWrapper>
       <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-primary animate-fadeInUp">About Me</h1>
@@ -26,8 +96,8 @@ export default function AboutPage() {
           </Card>
         </div>
 
-        <div className="md:col-span-3 space-y-8 animate-fadeInUp animation-delay-400">
-          <Card className="bg-card/80 backdrop-blur-sm shadow-lg">
+        <div className="md:col-span-3 space-y-8">
+          <Card className="bg-card/80 backdrop-blur-sm shadow-lg animate-fadeInUp animation-delay-400">
             <CardHeader>
               <CardTitle className="text-2xl text-primary/90">My Journey</CardTitle>
             </CardHeader>
@@ -44,31 +114,74 @@ export default function AboutPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-card/80 backdrop-blur-sm shadow-lg">
+          <Card className="bg-card/80 backdrop-blur-sm shadow-lg animate-fadeInUp" style={{ animationDelay: '0.5s' }}>
             <CardHeader>
-              <CardTitle className="text-2xl text-primary/90">Education &amp; Certifications</CardTitle>
+              <CardTitle className="text-2xl text-primary/90">Professional Experience</CardTitle>
             </CardHeader>
-            <CardContent className="text-foreground/80 space-y-6 text-lg">
-              <div className="flex items-start space-x-4">
-                <GraduationCap className="h-8 w-8 text-primary mt-1 shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-xl text-primary/90">Graduate</h3>
-                  <p className="text-foreground/80">Bangladesh University of Professionals (BUP)</p>
-                  <p className="text-sm text-muted-foreground">Dhaka, Bangladesh</p>
+            <CardContent className="space-y-8">
+              {experienceItems.map((item, index) => (
+                <div 
+                  key={index} 
+                  className="p-5 rounded-lg bg-card/50 border border-border/70 hover:shadow-lg hover:border-primary/40 transition-all duration-300 animate-fadeInUp"
+                  style={{ animationDelay: `${0.1 * (index + 1)}s` }}
+                >
+                  <div className="flex items-start mb-2">
+                    <Briefcase className="h-7 w-7 text-primary mr-4 mt-1 shrink-0" />
+                    <div>
+                      <h3 className="font-semibold text-xl text-primary/90">{item.title}</h3>
+                      <div className="flex items-center text-sm text-muted-foreground mt-1">
+                        <Building2 className="h-4 w-4 mr-1.5" />
+                        <span>{item.company}</span>
+                        {item.location && <span className="mx-1.5 text-xs">&bull;</span>}
+                        {item.location && <span>{item.location}</span>}
+                      </div>
+                      <div className="flex items-center text-sm text-muted-foreground mt-1">
+                        <CalendarDays className="h-4 w-4 mr-1.5" />
+                        <span>{item.duration}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <ul className="mt-3 pl-6 space-y-2 list-disc list-outside text-foreground/80 marker:text-primary/70">
+                    {item.responsibilities.map((responsibility, rIndex) => (
+                      <li key={rIndex} className="text-sm leading-relaxed">{responsibility}</li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <Award className="h-8 w-8 text-primary mt-1 shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-xl text-primary/90">Specialized Training in Digital Marketing</h3>
-                  <p className="text-foreground/80">Creative IT Institute</p>
-                  <p className="text-sm text-muted-foreground">Dhaka, Bangladesh</p>
-                </div>
-              </div>
+              ))}
             </CardContent>
           </Card>
 
-          <Card className="bg-card/80 backdrop-blur-sm shadow-lg">
+          <Card className="bg-card/80 backdrop-blur-sm shadow-lg animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
+            <CardHeader>
+              <CardTitle className="text-2xl text-primary/90">Education &amp; Certifications</CardTitle>
+            </CardHeader>
+            <CardContent className="p-6 pt-0 space-y-6">
+              {educationItems.map((item, index) => (
+                <div 
+                  key={index} 
+                  className="p-4 rounded-lg bg-card/50 border border-border/70 hover:shadow-lg hover:border-primary/40 transition-all duration-300 animate-fadeInUp"
+                  style={{ animationDelay: `${0.1 * (index + 1)}s` }}
+                >
+                  <div className="flex items-center mb-2">
+                    <item.icon className="h-7 w-7 text-primary mr-3 shrink-0" />
+                    <h3 className="font-semibold text-xl text-primary/90">{item.title}</h3>
+                  </div>
+                  <div className="pl-10 mt-1 space-y-1.5">
+                    <p className="text-md font-semibold text-foreground/90">{item.institution}</p>
+                    {(item.location || item.duration) && (
+                      <div className="flex items-center text-sm text-muted-foreground">
+                        {item.location && <span>{item.location}</span>}
+                        {item.location && item.duration && <span className="mx-1.5 text-xs">&bull;</span>}
+                        {item.duration && <span>{item.duration}</span>}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+
+          <Card className="bg-card/80 backdrop-blur-sm shadow-lg animate-fadeInUp" style={{ animationDelay: '0.7s' }}>
             <CardHeader>
               <CardTitle className="text-2xl text-primary/90">Philosophy &amp; Values</CardTitle>
             </CardHeader>
@@ -85,7 +198,7 @@ export default function AboutPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-card/80 backdrop-blur-sm shadow-lg">
+          <Card className="bg-card/80 backdrop-blur-sm shadow-lg animate-fadeInUp" style={{ animationDelay: '0.8s' }}>
             <CardHeader>
               <CardTitle className="text-2xl text-primary/90">Beyond the Code</CardTitle>
             </CardHeader>
@@ -100,3 +213,6 @@ export default function AboutPage() {
     </SectionWrapper>
   );
 }
+
+
+    

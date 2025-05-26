@@ -1,10 +1,11 @@
+
 // src/components/layout/Navbar.tsx
 "use client";
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, Feather } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
@@ -42,7 +43,7 @@ export default function Navbar() {
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <Link href="/" className="flex items-center space-x-2">
             <Feather className="h-6 w-6 text-primary" />
-            <span className="font-bold text-lg text-neon-glow">Fahim Ehtesam </span>
+            <span className="font-bold text-lg text-neon-glow">MD. Ehtesamul Haque Fahim</span>
           </Link>
           <div className="h-6 w-6 animate-pulse bg-muted rounded-md md:hidden"></div>
         </div>
@@ -55,7 +56,7 @@ export default function Navbar() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" className="flex items-center space-x-2">
           <Feather className="h-6 w-6 text-primary" />
-          <span className="font-bold text-lg text-neon-glow">Fahim Ehtesam</span>
+          <span className="font-bold text-lg text-neon-glow">MD. Ehtesamul Haque Fahim</span>
         </Link>
 
         <nav className="hidden md:flex space-x-2">
@@ -71,10 +72,17 @@ export default function Navbar() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px] bg-background p-6">
-              <div className="flex flex-col space-y-4">
-                <Link href="/" className="flex items-center space-x-2 mb-4" onClick={() => setIsSheetOpen(false)}>
-                  <Feather className="h-6 w-6 text-primary" />
-                  <span className="font-bold text-lg text-neon-glow">Fahim Ehtesam</span>
+              <SheetHeader className="mb-6 text-left"> {/* Added text-left for title alignment */}
+                <SheetTitle>Navigation Menu</SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-col space-y-3">
+                <Link
+                  href="/"
+                  className="flex items-center space-x-2 pb-3 mb-3 border-b border-border/40"
+                  onClick={() => setIsSheetOpen(false)}
+                >
+                  <Feather className="h-5 w-5 text-primary" />
+                  <span className="font-semibold text-md text-neon-glow">MD. Ehtesamul Haque Fahim</span>
                 </Link>
                 {navLinks.map(link => <NavLinkItem key={link.href} {...link} />)}
               </div>

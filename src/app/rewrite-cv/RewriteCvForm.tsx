@@ -53,7 +53,7 @@ export default function RewriteCvForm() {
 
   return (
     <div className="grid md:grid-cols-2 gap-8 items-start">
-      <Card className="bg-card/80 backdrop-blur-sm shadow-xl animate-fadeInUp animation-delay-200">
+      <Card className="bg-card/80 backdrop-blur-sm shadow-xl animate-fadeInUp animation-delay-300">
         <CardHeader>
           <CardTitle className="text-2xl text-primary/90">Original CV Section</CardTitle>
           <CardDescription>Paste the section of your CV you want to improve.</CardDescription>
